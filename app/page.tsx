@@ -9,7 +9,11 @@ const tours = [
     subtitle: 'La Ruta del Fin del Mundo',
     duration: '5 días',
     distance: '1050 kms',
-    image: '/images/tours/ushuaia.jpg',
+    images: [
+      '/images/tours/mapa.webp',
+      '/images/tours/ushuaia-1.jpg',
+      '/images/tours/ushuaia-2.jpg'
+    ],
     description: 'Un viaje épico hacia el fin del mundo. Atraviesa paisajes patagónicos únicos y vive la experiencia de llegar a Ushuaia, la ciudad más austral del planeta.',
     highlights: [
       'Paisajes patagónicos únicos',
@@ -24,7 +28,11 @@ const tours = [
     subtitle: 'Contrastes del Perú',
     duration: '11 días',
     distance: '2000 kms',
-    image: '/images/tours/altiplano.jpg',
+    images: [
+      '/images/tours/altiplano-1.jpg',
+      '/images/tours/altiplano-2.jpg',
+      '/images/tours/altiplano-3.jpg'
+    ],
     description: 'Descubre los contrastes más impresionantes del Perú. Desde las alturas del altiplano hasta la exuberancia de la selva amazónica, vive una aventura de transformación.',
     highlights: [
       'Del altiplano a la selva amazónica',
@@ -39,7 +47,11 @@ const tours = [
     subtitle: 'Costa Peruana',
     duration: '5 días',
     distance: '1050 kms',
-    image: '/images/tours/desierto.jpg',
+    images: [
+      '/images/tours/desierto-1.jpg',
+      '/images/tours/desierto-2.jpg',
+      '/images/tours/desierto-3.jpg'
+    ],
     description: 'Explora el contraste entre el desierto costero y las playas del Pacífico. Una ruta que combina arena, sol y la magia de la costa peruana.',
     highlights: [
       'Desiertos costeros únicos',
@@ -54,7 +66,11 @@ const tours = [
     subtitle: 'Arequipa Extrema',
     duration: '6 días',
     distance: '1000 kms',
-    image: '/images/tours/canones.jpg',
+    images: [
+      '/images/tours/canones-1.jpg',
+      '/images/tours/canones-2.jpg',
+      '/images/tours/canones-3.jpg'
+    ],
     description: 'Atraviesa los cañones más profundos de América y rodea volcanes imponentes. Una aventura extrema en el corazón de los Andes del sur.',
     highlights: [
       'Cañón del Colca',
@@ -69,7 +85,11 @@ const tours = [
     subtitle: 'Tu Aventura Personalizada',
     duration: 'Personalizado',
     distance: 'A medida',
-    image: '/images/tours/custom.jpg',
+    images: [
+      '/images/tours/custom-1.jpg',
+      '/images/tours/custom-2.jpg',
+      '/images/tours/custom-3.jpg'
+    ],
     description: 'Diseña tu propia aventura. Elige tus destinos, duración y experiencias. Creamos el tour perfecto según tus sueños y expectativas.',
     highlights: [
       'Totalmente personalizable',

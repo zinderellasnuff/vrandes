@@ -1,171 +1,124 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
-import Button from '@/app/components/ui/Button';
+import { useState, useEffect, useCallback } from 'react';
 import { TourShowcaseProps } from '@/app/types';
 
 export default function TourShowcase({ tours }: TourShowcaseProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const activeTour = tours[activeIndex];
+
+  const nextImage = useCallback(() => {
+    setImageIndex((prev) => (prev + 1) % activeTour.images.length);
+  }, [activeTour.images.length]);
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (isPaused) return;
 
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % tours.length);
-    }, 5000);
+      nextImage();
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, tours.length]);
+  }, [isPaused, nextImage]);
 
   useEffect(() => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current;
-      const cardWidth = container.offsetWidth;
-      container.scrollTo({
-        left: activeIndex * cardWidth,
-        behavior: 'smooth'
-      });
-    }
+    setImageIndex(0);
   }, [activeIndex]);
 
-  const handlePrevious = () => {
-    setIsAutoPlaying(false);
-    setActiveIndex((current) => (current - 1 + tours.length) % tours.length);
-  };
-
-  const handleNext = () => {
-    setIsAutoPlaying(false);
-    setActiveIndex((current) => (current + 1) % tours.length);
-  };
-
-  const handleDotClick = (index: number) => {
-    setIsAutoPlaying(false);
+  const handleTourChange = (index: number) => {
     setActiveIndex(index);
+    setImageIndex(0);
   };
 
   return (
-    <section className="tour-showcase">
-      {/* Decorative Elements */}
-      <div className="tour-showcase__decorations">
-        <div className="tour-showcase__decoration tour-showcase__decoration--1"></div>
-        <div className="tour-showcase__decoration tour-showcase__decoration--2"></div>
-        <div className="tour-showcase__decoration tour-showcase__decoration--3"></div>
-        <div className="tour-showcase__decoration tour-showcase__decoration--4"></div>
-      </div>
+    <section className="tours">
+      <div className="tours__container container">
+        {/* Left Side - Tour Info */}
+        <div className="tours__info">
+          <span className="tours__label">Expediciones</span>
+          <h2 className="tours__title display-text">{activeTour.title}</h2>
+          <p className="tours__subtitle display-text">{activeTour.subtitle}</p>
 
-      {/* Header */}
-      <div className="tour-showcase__header container">
-        <h2 className="tour-showcase__title display-text">
-          Nuestros Tours
-        </h2>
-        <p className="tour-showcase__subtitle">
-          Explora el Perú como nunca antes lo has imaginado
-        </p>
-      </div>
-
-      {/* Carousel Container */}
-      <div className="tour-showcase__carousel">
-        {/* Navigation Arrows */}
-        <button
-          className="tour-showcase__arrow tour-showcase__arrow--prev"
-          onClick={handlePrevious}
-          aria-label="Tour anterior"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-
-        <button
-          className="tour-showcase__arrow tour-showcase__arrow--next"
-          onClick={handleNext}
-          aria-label="Siguiente tour"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-
-        {/* Cards Container */}
-        <div className="tour-showcase__scroll" ref={scrollContainerRef}>
-          {tours.map((tour, index) => (
-            <div
-              key={tour.id}
-              className={`tour-showcase__card ${
-                index === activeIndex ? 'tour-showcase__card--active' : ''
-              }`}
-              style={{ backgroundColor: tour.color }}
-            >
-              {/* Card Image */}
-              <div className="tour-showcase__card-image">
-                <img src={tour.image} alt={tour.title} />
-                <div className="tour-showcase__card-overlay"></div>
-              </div>
-
-              {/* Card Content */}
-              <div className="tour-showcase__card-content">
-                <div className="tour-showcase__card-header">
-                  <h3 className="tour-showcase__card-title">
-                    {tour.title}
-                  </h3>
-                  <p className="tour-showcase__card-subtitle">
-                    {tour.subtitle}
-                  </p>
-                </div>
-
-                <div className="tour-showcase__card-meta">
-                  <div className="tour-showcase__card-meta-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                      <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                    </svg>
-                    <span>{tour.duration}</span>
-                  </div>
-                  <div className="tour-showcase__card-meta-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M9 17H7A5 5 0 0 1 7 7h2" stroke="currentColor" strokeWidth="2"/>
-                      <path d="M15 7h2a5 5 0 1 1 0 10h-2" stroke="currentColor" strokeWidth="2"/>
-                      <line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                    <span>{tour.distance}</span>
-                  </div>
-                </div>
-
-                <p className="tour-showcase__card-description">
-                  {tour.description}
-                </p>
-
-                {tour.highlights.length > 0 && (
-                  <ul className="tour-showcase__card-highlights">
-                    {tour.highlights.map((highlight, idx) => (
-                      <li key={idx}>{highlight}</li>
-                    ))}
-                  </ul>
-                )}
-
-                <div className="tour-showcase__card-cta">
-                  <Button variant="primary" size="medium">
-                    Más Información
-                  </Button>
-                </div>
-              </div>
+          <div className="tours__stats">
+            <div className="tours__stat">
+              <span className="tours__stat-value">{activeTour.duration}</span>
+              <span className="tours__stat-label">Duración</span>
             </div>
-          ))}
+            <div className="tours__stat">
+              <span className="tours__stat-value">{activeTour.distance}</span>
+              <span className="tours__stat-label">Recorrido</span>
+            </div>
+          </div>
+
+          <p className="tours__description">{activeTour.description}</p>
+
+          <button className="tours__cta">
+            <span>Explorar Ruta</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+
+          {/* Tour Navigation */}
+          <div className="tours__nav">
+            {tours.map((tour, index) => (
+              <button
+                key={tour.id}
+                className={`tours__nav-item ${index === activeIndex ? 'tours__nav-item--active' : ''}`}
+                onClick={() => handleTourChange(index)}
+              >
+                <span className="tours__nav-number">0{index + 1}</span>
+                <span className="tours__nav-title">{tour.title}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Dots Navigation */}
-        <div className="tour-showcase__dots">
-          {tours.map((_, index) => (
-            <button
-              key={index}
-              className={`tour-showcase__dot ${
-                index === activeIndex ? 'tour-showcase__dot--active' : ''
-              }`}
-              onClick={() => handleDotClick(index)}
-              aria-label={`Ir al tour ${index + 1}`}
-            />
-          ))}
+        {/* Right Side - Image Carousel */}
+        <div className="tours__image-wrapper">
+          <div
+            className="tours__carousel"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
+            {activeTour.images.map((image, index) => (
+              <div
+                key={index}
+                className={`tours__carousel-slide ${index === imageIndex ? 'tours__carousel-slide--active' : ''}`}
+              >
+                <img src={image} alt={`${activeTour.title} - ${index + 1}`} />
+              </div>
+            ))}
+
+            {/* Image indicators */}
+            <div className="tours__carousel-indicators">
+              {activeTour.images.map((_, index) => (
+                <button
+                  key={index}
+                  className={`tours__carousel-dot ${index === imageIndex ? 'tours__carousel-dot--active' : ''}`}
+                  onClick={() => setImageIndex(index)}
+                  aria-label={`Imagen ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="tours__image-frame"></div>
+
+          {/* Progress indicator */}
+          <div className="tours__progress">
+            <span className="tours__progress-current">0{activeIndex + 1}</span>
+            <div className="tours__progress-line">
+              <div
+                className="tours__progress-fill"
+                style={{ height: `${((activeIndex + 1) / tours.length) * 100}%` }}
+              ></div>
+            </div>
+            <span className="tours__progress-total">0{tours.length}</span>
+          </div>
         </div>
       </div>
     </section>

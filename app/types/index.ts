@@ -22,7 +22,7 @@ export interface Tour {
   subtitle: string;
   duration: string;
   distance: string;
-  image: string;
+  images: string[];
   description: string;
   highlights: string[];
   color: string;
