@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Header Component - BEM Methodology
+   ========================================================================== */
+
 .header {
   position: fixed;
   top: 0;
@@ -10,20 +14,24 @@
   backdrop-filter: blur(10px);
 }
 
-.header-transparent {
+.header--transparent {
   background-color: transparent;
 }
 
-.header-container {
+.header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Menu Button */
-.menu-button {
+/* ==========================================================================
+   Header Menu Button
+   ========================================================================== */
+
+.header__menu-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   background-color: var(--color-accent);
   color: white;
@@ -34,12 +42,20 @@
   transition: all 0.3s ease;
 }
 
-.menu-button:hover {
+.header__menu-btn:hover {
   background-color: #d67419;
   transform: translateY(-2px);
 }
 
-.menu-icon {
+.header__menu-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.header__menu-icon {
   width: 20px;
   height: 2px;
   background-color: white;
@@ -47,26 +63,36 @@
   transition: all 0.3s ease;
 }
 
-/* Logo */
-.logo {
+.header__menu-text {
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Header Logo
+   ========================================================================== */
+
+.header__logo {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.logo img {
-  height: 60px;
+.header__logo img {
+  height: 115px;
   width: auto;
 }
 
-/* Header Actions */
-.header-actions {
+/* ==========================================================================
+   Header Actions
+   ========================================================================== */
+
+.header__actions {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
 }
 
-.btn-language {
+.header__lang-btn {
   color: white;
   font-weight: 600;
   font-size: 15px;
@@ -74,26 +100,115 @@
   transition: color 0.3s ease;
 }
 
-.btn-language:hover {
+.header__lang-btn:hover {
   color: var(--color-accent);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .logo img {
-    height: 45px;
+/* ==========================================================================
+   Ultrawide Screens (2560px and above)
+   ========================================================================== */
+
+@media (min-width: 2560px) {
+  .header {
+    padding: var(--spacing-lg) 0;
   }
-  
-  .menu-text {
+
+  .header__logo img {
+    height: 140px;
+  }
+
+  .header__menu-btn {
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+
+  .header__lang-btn {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 3440px) {
+  .header__logo img {
+    height: 160px;
+  }
+
+  .header__menu-btn {
+    padding: 16px 28px;
+    font-size: 18px;
+  }
+
+  .header__lang-btn {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+}
+
+/* ==========================================================================
+   Tablet (1024px and below)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .header__logo img {
+    height: 90px;
+  }
+}
+
+/* ==========================================================================
+   Mobile (768px and below)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .header {
+    padding: var(--spacing-sm) 0;
+  }
+
+  .header__logo img {
+    height: 60px;
+  }
+
+  .header__menu-text {
     display: none;
   }
-  
-  .header-actions .btn {
+
+  .header__menu-btn {
+    padding: 10px 14px;
+  }
+
+  .header__actions .btn {
     font-size: 13px;
     padding: 10px 20px;
   }
-  
-  .btn-language {
+
+  .header__lang-btn {
     font-size: 13px;
+  }
+}
+
+/* ==========================================================================
+   Small Mobile (480px and below)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .header__logo img {
+    height: 45px;
+  }
+
+  .header__menu-btn {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .header__menu-icon {
+    width: 16px;
+  }
+
+  .header__actions .btn {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+
+  .header__lang-btn {
+    font-size: 12px;
+    padding: 6px 10px;
   }
 }

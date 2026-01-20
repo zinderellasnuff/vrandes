@@ -1,7 +1,30 @@
 .container {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
+}
+
+/* Ultrawide container support */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (min-width: 2560px) {
+  .container {
+    max-width: 2200px;
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+@media (min-width: 3440px) {
+  .container {
+    max-width: 3000px;
+    padding: 0 var(--spacing-2xl);
+  }
 }
 
 .display-text {

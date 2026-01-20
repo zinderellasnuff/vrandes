@@ -13,6 +13,5 @@ export interface HeaderProps {
 export interface HeroProps {
   videoSrc: string;
   title: string;
-  subtitle: string;
   description: string;
 }
