@@ -9,3 +9,6 @@
 @import './styles/components/button.css';
 @import './styles/layout/header.css';
 @import './styles/layout/hero.css';
+
+/* Feature styles */
+@import './styles/features/tour-showcase.css';
