@@ -15,3 +15,19 @@ export interface HeroProps {
   title: string;
   description: string;
 }
+
+export interface Tour {
+  id: string;
+  title: string;
+  subtitle: string;
+  duration: string;
+  distance: string;
+  image: string;
+  description: string;
+  highlights: string[];
+  color: string;
+}
+
+export interface TourShowcaseProps {
+  tours: Tour[];
+}
