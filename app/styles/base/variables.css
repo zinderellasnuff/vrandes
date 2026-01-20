@@ -1,0 +1,38 @@
+:root {
+  /* Colores */
+  --color-primary: #D4B59E;
+  --color-secondary: #2C3E50;
+  --color-accent: #E67E22;
+  --color-background: #FFFFFF;
+  --color-text-primary: #2C3E50;
+  --color-text-secondary: #7F8C8D;
+  
+  /* Tipografía */
+  --font-display: 'Playfair Display', serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  
+  /* Tamaños de fuente */
+  --font-size-display-lg: 95px;
+  --font-size-display-md: 68px;
+  --font-size-heading-lg: 28px;
+  --font-size-heading-md: 24px;
+  --font-size-body-lg: 18px;
+  --font-size-body-regular: 24px;
+  --font-size-body-small: 14px;
+  --font-size-button: 15px;
+  
+  /* Espaciados */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  
+  /* Breakpoints */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1280px;
+}
