@@ -1,0 +1,231 @@
+/* ===============================================
+   VALUE PROPOSITION COMPONENT
+   =============================================== */
+
+.value-proposition {
+  width: 100%;
+}
+
+/* ===============================================
+   TOP SECTION - Intro
+   =============================================== */
+
+.value-proposition__intro {
+  background-color: var(--color-background);
+  padding: var(--spacing-2xl) 0;
+  text-align: center;
+}
+
+.value-proposition__intro .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.value-proposition__title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.value-proposition__description {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===============================================
+   MIDDLE SECTION - Split Layout
+   =============================================== */
+
+.value-proposition__split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+/* Left Side - Dark Background */
+.value-proposition__left {
+  background-color: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  gap: var(--spacing-lg);
+}
+
+.value-proposition__logo {
+  width: 110px;
+  height: 110px;
+  position: relative;
+}
+
+.value-proposition__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.value-proposition__slogan {
+  font-family: var(--font-display);
+  font-size: 68px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.value-proposition__slogan-line {
+  color: var(--color-background);
+  display: block;
+}
+
+.value-proposition__slogan-highlight {
+  color: var(--color-primary);
+  font-style: italic;
+  display: block;
+}
+
+/* Right Side - Image */
+.value-proposition__right {
+  position: relative;
+  overflow: hidden;
+}
+
+.value-proposition__image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===============================================
+   BOTTOM SECTION - Orange Footer
+   =============================================== */
+
+.value-proposition__footer {
+  background-color: var(--color-accent);
+  padding: var(--spacing-2xl) 0;
+  text-align: center;
+}
+
+.value-proposition__footer .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.value-proposition__footer-title {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--color-background);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.value-proposition__footer-text {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-lg);
+  color: var(--color-background);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===============================================
+   RESPONSIVE - Tablet
+   =============================================== */
+
+@media (max-width: 1024px) {
+  .value-proposition__title {
+    font-size: 42px;
+  }
+
+  .value-proposition__slogan {
+    font-size: 56px;
+  }
+
+  .value-proposition__footer-title {
+    font-size: 48px;
+  }
+}
+
+/* ===============================================
+   RESPONSIVE - Mobile
+   =============================================== */
+
+@media (max-width: 768px) {
+  .value-proposition__intro {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .value-proposition__title {
+    font-size: 36px;
+  }
+
+  .value-proposition__description {
+    font-size: 16px;
+  }
+
+  .value-proposition__split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .value-proposition__left {
+    padding: var(--spacing-xl) var(--spacing-md);
+    min-height: 500px;
+  }
+
+  .value-proposition__logo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .value-proposition__slogan {
+    font-size: 48px;
+  }
+
+  .value-proposition__right {
+    min-height: 400px;
+  }
+
+  .value-proposition__footer {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .value-proposition__footer-title {
+    font-size: 38px;
+  }
+
+  .value-proposition__footer-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .value-proposition__title {
+    font-size: 28px;
+  }
+
+  .value-proposition__slogan {
+    font-size: 42px;
+  }
+
+  .value-proposition__footer-title {
+    font-size: 32px;
+  }
+
+  .value-proposition__left {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+}
