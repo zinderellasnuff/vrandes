@@ -1,0 +1,391 @@
+/* ===============================================
+   PHOTO GALLERY COMPONENT
+   =============================================== */
+
+.photo-gallery {
+  position: relative;
+  background-color: var(--color-secondary);
+  padding: var(--spacing-3xl) 0;
+  overflow: hidden;
+}
+
+/* ===============================================
+   HEADER SECTION
+   =============================================== */
+
+.photo-gallery__header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  padding: 0 var(--spacing-md);
+}
+
+.photo-gallery__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--color-accent);
+  color: var(--color-background);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.photo-gallery__badge-icon {
+  font-size: 16px;
+}
+
+.photo-gallery__title {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--color-background);
+  line-height: 1.2;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.photo-gallery__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-lg);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===============================================
+   GRID LAYOUT - MASONRY STYLE
+   =============================================== */
+
+.photo-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+/* ===============================================
+   GRID ITEMS - DIFFERENT SIZES
+   =============================================== */
+
+.photo-gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.photo-gallery__item:hover {
+  transform: scale(1.02);
+  z-index: 2;
+}
+
+/* Large items - 2x2 */
+.photo-gallery__item--large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Wide items - 2x1 */
+.photo-gallery__item--wide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* Tall items - 1x2 */
+.photo-gallery__item--tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+/* Medium items - 1x1 (default) */
+.photo-gallery__item--medium {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* ===============================================
+   IMAGE WRAPPER
+   =============================================== */
+
+.photo-gallery__image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.photo-gallery__item--large .photo-gallery__image-wrapper {
+  min-height: 600px;
+}
+
+.photo-gallery__item--tall .photo-gallery__image-wrapper {
+  min-height: 600px;
+}
+
+/* ===============================================
+   OVERLAY
+   =============================================== */
+
+.photo-gallery__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--spacing-md);
+}
+
+.photo-gallery__item:hover .photo-gallery__overlay {
+  opacity: 1;
+}
+
+.photo-gallery__overlay-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.photo-gallery__overlay-icon {
+  font-size: 24px;
+  color: var(--color-background);
+}
+
+.photo-gallery__caption {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-background);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ===============================================
+   LIGHTBOX
+   =============================================== */
+
+.photo-gallery__lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.photo-gallery__lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.photo-gallery__lightbox-image {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  max-width: 1200px;
+  max-height: 800px;
+}
+
+.photo-gallery__lightbox-caption {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body-lg);
+  color: var(--color-background);
+  text-align: center;
+  margin: 0;
+  padding: var(--spacing-sm);
+}
+
+/* Lightbox Controls */
+.photo-gallery__lightbox-close,
+.photo-gallery__lightbox-prev,
+.photo-gallery__lightbox-next {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--color-background);
+  color: var(--color-background);
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.photo-gallery__lightbox-close:hover,
+.photo-gallery__lightbox-prev:hover,
+.photo-gallery__lightbox-next:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.photo-gallery__lightbox-close {
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.photo-gallery__lightbox-prev,
+.photo-gallery__lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.photo-gallery__lightbox-prev {
+  left: var(--spacing-md);
+}
+
+.photo-gallery__lightbox-next {
+  right: var(--spacing-md);
+}
+
+.photo-gallery__lightbox-prev:hover,
+.photo-gallery__lightbox-next:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ===============================================
+   RESPONSIVE - Large Desktop
+   =============================================== */
+
+@media (max-width: 1440px) {
+  .photo-gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===============================================
+   RESPONSIVE - Tablet
+   =============================================== */
+
+@media (max-width: 1024px) {
+  .photo-gallery__title {
+    font-size: 48px;
+  }
+
+  .photo-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 var(--spacing-md);
+  }
+
+  .photo-gallery__item--large,
+  .photo-gallery__item--wide {
+    grid-column: span 2;
+  }
+
+  .photo-gallery__item--tall {
+    grid-row: span 1;
+  }
+}
+
+/* ===============================================
+   RESPONSIVE - Mobile
+   =============================================== */
+
+@media (max-width: 768px) {
+  .photo-gallery {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .photo-gallery__header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .photo-gallery__title {
+    font-size: 38px;
+  }
+
+  .photo-gallery__subtitle {
+    font-size: 16px;
+  }
+
+  .photo-gallery__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .photo-gallery__item--large,
+  .photo-gallery__item--wide,
+  .photo-gallery__item--tall,
+  .photo-gallery__item--medium {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .photo-gallery__image-wrapper,
+  .photo-gallery__item--large .photo-gallery__image-wrapper,
+  .photo-gallery__item--tall .photo-gallery__image-wrapper {
+    min-height: 250px;
+  }
+
+  .photo-gallery__lightbox-image {
+    width: 90vw;
+    height: 70vh;
+  }
+
+  .photo-gallery__lightbox-prev,
+  .photo-gallery__lightbox-next {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-gallery__title {
+    font-size: 32px;
+  }
+
+  .photo-gallery__badge {
+    font-size: 12px;
+  }
+
+  .photo-gallery__lightbox-close,
+  .photo-gallery__lightbox-prev,
+  .photo-gallery__lightbox-next {
+    font-size: 20px;
+  }
+}
