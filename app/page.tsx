@@ -110,8 +110,8 @@ export default function Home() {
         title="Vive el Perú"
         description="No vendemos tours, creamos aventuras."
       />
+            <TourShowcase tours={tours} />
       <ValueProposition />
-      <TourShowcase tours={tours} />
     </main>
   );
 }

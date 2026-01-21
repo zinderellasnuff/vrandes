@@ -1,14 +1,14 @@
-/* ===============================================
-   VALUE PROPOSITION COMPONENT
-   =============================================== */
+/* ==========================================================================
+   Value Proposition Component - BEM Methodology
+   ========================================================================== */
 
 .value-proposition {
   width: 100%;
 }
 
-/* ===============================================
-   TOP SECTION - Intro
-   =============================================== */
+/* ==========================================================================
+   Top Section - Intro
+   ========================================================================== */
 
 .value-proposition__intro {
   background-color: var(--color-background);
@@ -17,37 +17,38 @@
 }
 
 .value-proposition__intro .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
 }
 
 .value-proposition__title {
   font-family: var(--font-display);
-  font-size: 48px;
-  font-weight: 700;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 400;
   color: var(--color-text-primary);
-  margin-bottom: var(--spacing-md);
-  line-height: 1.2;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.1;
+  letter-spacing: -1px;
 }
 
 .value-proposition__description {
   font-family: var(--font-body);
-  font-size: var(--font-size-body-lg);
+  font-size: clamp(16px, 1.3vw, 22px);
   color: var(--color-text-secondary);
-  line-height: 1.6;
-  max-width: 800px;
+  line-height: 1.8;
+  max-width: 850px;
   margin: 0 auto;
 }
 
-/* ===============================================
-   MIDDLE SECTION - Split Layout
-   =============================================== */
+/* ==========================================================================
+   Middle Section - Split Layout
+   ========================================================================== */
 
 .value-proposition__split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 600px;
+  min-height: 700px;
 }
 
 /* Left Side - Dark Background */
@@ -57,13 +58,13 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: var(--spacing-2xl) var(--spacing-xl);
+  padding: var(--spacing-2xl) var(--spacing-2xl);
   gap: var(--spacing-lg);
 }
 
 .value-proposition__logo {
-  width: 110px;
-  height: 110px;
+  width: 120px;
+  height: 120px;
   position: relative;
 }
 
@@ -75,9 +76,9 @@
 
 .value-proposition__slogan {
   font-family: var(--font-display);
-  font-size: 68px;
-  font-weight: 700;
-  line-height: 1.1;
+  font-size: clamp(48px, 5vw, 90px);
+  font-weight: 400;
+  line-height: 1;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -90,7 +91,7 @@
 }
 
 .value-proposition__slogan-highlight {
-  color: var(--color-primary);
+  color: #D4B59E;
   font-style: italic;
   display: block;
 }
@@ -107,9 +108,17 @@
   height: 100%;
 }
 
-/* ===============================================
-   BOTTOM SECTION - Orange Footer
-   =============================================== */
+.value-proposition__image img {
+  transition: transform 0.6s ease;
+}
+
+.value-proposition__right:hover .value-proposition__image img {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Bottom Section - Orange Footer
+   ========================================================================== */
 
 .value-proposition__footer {
   background-color: var(--color-accent);
@@ -118,36 +127,120 @@
 }
 
 .value-proposition__footer .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
 }
 
 .value-proposition__footer-title {
   font-family: var(--font-display);
-  font-size: 56px;
-  font-weight: 700;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 400;
+  font-style: italic;
   color: var(--color-background);
   margin-bottom: var(--spacing-md);
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .value-proposition__footer-text {
   font-family: var(--font-body);
-  font-size: var(--font-size-body-lg);
+  font-size: clamp(16px, 1.3vw, 22px);
   color: var(--color-background);
-  line-height: 1.6;
-  max-width: 700px;
+  line-height: 1.7;
+  max-width: 750px;
   margin: 0 auto;
+  opacity: 0.95;
 }
 
-/* ===============================================
-   RESPONSIVE - Tablet
-   =============================================== */
+/* ==========================================================================
+   Ultrawide Screens (2560px and above)
+   ========================================================================== */
+
+@media (min-width: 2560px) {
+  .value-proposition__intro {
+    padding: 100px 0;
+  }
+
+  .value-proposition__intro .container {
+    max-width: 1200px;
+  }
+
+  .value-proposition__split {
+    min-height: 800px;
+  }
+
+  .value-proposition__left {
+    padding: var(--spacing-2xl) 100px;
+  }
+
+  .value-proposition__logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .value-proposition__footer {
+    padding: 100px 0;
+  }
+
+  .value-proposition__footer .container {
+    max-width: 1200px;
+  }
+}
+
+/* ==========================================================================
+   Ultrawide Screens (3440px and above)
+   ========================================================================== */
+
+@media (min-width: 3440px) {
+  .value-proposition__intro {
+    padding: 120px 0;
+  }
+
+  .value-proposition__intro .container {
+    max-width: 1400px;
+  }
+
+  .value-proposition__split {
+    min-height: 900px;
+  }
+
+  .value-proposition__left {
+    padding: var(--spacing-2xl) 150px;
+  }
+
+  .value-proposition__logo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .value-proposition__footer {
+    padding: 120px 0;
+  }
+
+  .value-proposition__footer .container {
+    max-width: 1400px;
+  }
+}
+
+/* ==========================================================================
+   Tablet (1024px and below)
+   ========================================================================== */
 
 @media (max-width: 1024px) {
+  .value-proposition__intro {
+    padding: var(--spacing-xl) 0;
+  }
+
   .value-proposition__title {
-    font-size: 42px;
+    font-size: 48px;
+  }
+
+  .value-proposition__split {
+    min-height: 600px;
+  }
+
+  .value-proposition__left {
+    padding: var(--spacing-xl) var(--spacing-lg);
   }
 
   .value-proposition__slogan {
@@ -159,9 +252,9 @@
   }
 }
 
-/* ===============================================
-   RESPONSIVE - Mobile
-   =============================================== */
+/* ==========================================================================
+   Mobile (768px and below)
+   ========================================================================== */
 
 @media (max-width: 768px) {
   .value-proposition__intro {
@@ -170,10 +263,12 @@
 
   .value-proposition__title {
     font-size: 36px;
+    letter-spacing: 0;
   }
 
   .value-proposition__description {
     font-size: 16px;
+    line-height: 1.7;
   }
 
   .value-proposition__split {
@@ -183,20 +278,23 @@
 
   .value-proposition__left {
     padding: var(--spacing-xl) var(--spacing-md);
-    min-height: 500px;
+    min-height: 450px;
+    align-items: center;
+    text-align: center;
   }
 
   .value-proposition__logo {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
   }
 
   .value-proposition__slogan {
-    font-size: 48px;
+    font-size: 44px;
+    align-items: center;
   }
 
   .value-proposition__right {
-    min-height: 400px;
+    min-height: 350px;
   }
 
   .value-proposition__footer {
@@ -204,7 +302,7 @@
   }
 
   .value-proposition__footer-title {
-    font-size: 38px;
+    font-size: 36px;
   }
 
   .value-proposition__footer-text {
@@ -212,20 +310,81 @@
   }
 }
 
+/* ==========================================================================
+   Small Mobile (480px and below)
+   ========================================================================== */
+
 @media (max-width: 480px) {
+  .value-proposition__intro {
+    padding: var(--spacing-lg) 0;
+  }
+
   .value-proposition__title {
     font-size: 28px;
   }
 
-  .value-proposition__slogan {
-    font-size: 42px;
-  }
-
-  .value-proposition__footer-title {
-    font-size: 32px;
+  .value-proposition__description {
+    font-size: 15px;
   }
 
   .value-proposition__left {
     padding: var(--spacing-lg) var(--spacing-sm);
+    min-height: 380px;
+  }
+
+  .value-proposition__logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .value-proposition__slogan {
+    font-size: 36px;
+  }
+
+  .value-proposition__right {
+    min-height: 300px;
+  }
+
+  .value-proposition__footer {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .value-proposition__footer-title {
+    font-size: 28px;
+  }
+
+  .value-proposition__footer-text {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================================================
+   Extra Small Mobile (360px and below)
+   ========================================================================== */
+
+@media (max-width: 360px) {
+  .value-proposition__title {
+    font-size: 24px;
+  }
+
+  .value-proposition__slogan {
+    font-size: 30px;
+  }
+
+  .value-proposition__left {
+    min-height: 340px;
+  }
+
+  .value-proposition__logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .value-proposition__right {
+    min-height: 260px;
+  }
+
+  .value-proposition__footer-title {
+    font-size: 24px;
   }
 }
