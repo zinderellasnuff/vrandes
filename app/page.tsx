@@ -1,5 +1,6 @@
 import Header from './components/layout/Header';
 import Hero from './features/home/components/Hero';
+import ValueProposition from './features/about/components/ValueProposition';
 import TourShowcase from './features/tours/components/TourShowcase';
 
 const tours = [
@@ -109,6 +110,7 @@ export default function Home() {
         title="Vive el Perú"
         description="No vendemos tours, creamos aventuras."
       />
+      <ValueProposition />
       <TourShowcase tours={tours} />
     </main>
   );
