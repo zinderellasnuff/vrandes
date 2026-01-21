@@ -31,3 +31,29 @@ export interface Tour {
 export interface TourShowcaseProps {
   tours: Tour[];
 }
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  location: string;
+  avatar: string;
+  title: string;
+  description: string;
+  rating: number;
+}
+
+export interface TestimonialsProps {
+  testimonials: Testimonial[];
+}
+
+export interface Photo {
+  id: string;
+  src: string;
+  alt: string;
+  caption?: string;
+  size?: 'large' | 'wide' | 'tall' | 'medium';
+}
+
+export interface PhotoGalleryProps {
+  photos: Photo[];
+}
