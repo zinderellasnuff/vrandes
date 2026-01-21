@@ -40,6 +40,8 @@
   font-weight: 600;
   font-size: 15px;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 1001;
 }
 
 .header__menu-btn:hover {
@@ -61,6 +63,19 @@
   background-color: white;
   display: block;
   transition: all 0.3s ease;
+}
+
+/* Menu button open state - X animation */
+.header__menu-btn--open .header__menu-icon:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__menu-btn--open .header__menu-icon:nth-child(2) {
+  opacity: 0;
+}
+
+.header__menu-btn--open .header__menu-icon:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .header__menu-text {
@@ -102,6 +117,89 @@
 
 .header__lang-btn:hover {
   color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Menu Overlay (Desktop & Mobile)
+   ========================================================================== */
+
+.header__menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #1a252f 0%, #2C3E50 50%, #1a252f 100%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2xl);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.header__menu-overlay--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header__menu-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.header__menu-link {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.header__menu-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #D4B59E;
+  transition: width 0.3s ease;
+}
+
+.header__menu-link:hover {
+  color: #D4B59E;
+}
+
+.header__menu-link:hover::after {
+  width: 100%;
+}
+
+/* Hide actions on desktop - only show on mobile */
+.header__menu-actions {
+  display: none;
+}
+
+.header__menu-lang-btn {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 16px;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.header__menu-lang-btn:hover {
+  color: #D4B59E;
 }
 
 /* ==========================================================================
@@ -162,8 +260,24 @@
     padding: var(--spacing-sm) 0;
   }
 
+  .header__container {
+    flex-direction: row;
+  }
+
+  /* Logo moves to the right */
+  .header__logo {
+    position: static;
+    transform: none;
+    order: 2;
+  }
+
   .header__logo img {
     height: 60px;
+  }
+
+  /* Menu button stays left */
+  .header__menu-btn {
+    order: 1;
   }
 
   .header__menu-text {
@@ -174,13 +288,22 @@
     padding: 10px 14px;
   }
 
-  .header__actions .btn {
-    font-size: 13px;
-    padding: 10px 20px;
+  /* Hide actions on mobile header - they go in the menu */
+  .header__actions {
+    display: none;
   }
 
-  .header__lang-btn {
-    font-size: 13px;
+  /* Show actions in menu overlay on mobile */
+  .header__menu-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+  }
+
+  .header__menu-link {
+    font-size: 32px;
   }
 }
 
@@ -202,13 +325,21 @@
     width: 16px;
   }
 
-  .header__actions .btn {
-    font-size: 12px;
-    padding: 8px 14px;
+  .header__menu-link {
+    font-size: 28px;
+  }
+}
+
+/* ==========================================================================
+   Extra Small Mobile (360px and below)
+   ========================================================================== */
+
+@media (max-width: 360px) {
+  .header__logo img {
+    height: 40px;
   }
 
-  .header__lang-btn {
-    font-size: 12px;
-    padding: 6px 10px;
+  .header__mobile-link {
+    font-size: 24px;
   }
 }
