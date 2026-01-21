@@ -60,6 +60,28 @@
   justify-content: center;
   padding: var(--spacing-2xl) var(--spacing-2xl);
   gap: var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pattern for dark section */
+.value-proposition__left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cpath d='M0 150 Q 75 100, 150 150 T 300 150' stroke='%23D4B59E' stroke-width='0.8' fill='none' opacity='0.1'/%3E%3Cpath d='M0 200 Q 100 150, 200 200 T 400 200' stroke='%23D4B59E' stroke-width='0.5' fill='none' opacity='0.08'/%3E%3Ccircle cx='250' cy='50' r='40' stroke='%23D4B59E' stroke-width='0.5' fill='none' opacity='0.08'/%3E%3Ccircle cx='250' cy='50' r='25' stroke='%23D4B59E' stroke-width='0.3' fill='none' opacity='0.06'/%3E%3Ccircle cx='50' cy='250' r='30' stroke='%23D4B59E' stroke-width='0.4' fill='none' opacity='0.07'/%3E%3C/svg%3E");
+  background-size: 400px 400px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.value-proposition__left > * {
+  position: relative;
+  z-index: 1;
 }
 
 .value-proposition__logo {
@@ -124,12 +146,31 @@
   background-color: var(--color-accent);
   padding: var(--spacing-2xl) 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pattern for orange section */
+.value-proposition__footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Cpath d='M0 100 Q 100 50, 200 100 T 400 100' stroke='%23ffffff' stroke-width='0.8' fill='none' opacity='0.15'/%3E%3Cpath d='M0 150 Q 150 100, 300 150 T 600 150' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3Ccircle cx='350' cy='40' r='35' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.12'/%3E%3Ccircle cx='350' cy='40' r='20' stroke='%23ffffff' stroke-width='0.3' fill='none' opacity='0.08'/%3E%3Ccircle cx='50' cy='160' r='25' stroke='%23ffffff' stroke-width='0.4' fill='none' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 500px 250px;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .value-proposition__footer .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
+  position: relative;
+  z-index: 1;
 }
 
 .value-proposition__footer-title {

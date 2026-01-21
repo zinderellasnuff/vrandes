@@ -1,9 +1,11 @@
 import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import Hero from './features/home/components/Hero';
 import ValueProposition from './features/about/components/ValueProposition';
 import Testimonials from './features/testimonials/components/Testimonials';
 import PhotoGallery from './features/gallery/components/PhotoGallery';
 import TourShowcase from './features/tours/components/TourShowcase';
+import Contact from './features/contact/components/Contact';
 
 const testimonials = [
   {
@@ -223,6 +225,8 @@ export default function Home() {
       <ValueProposition />
       <Testimonials testimonials={testimonials} />
       <PhotoGallery photos={photos} />
+      <Contact />
+      <Footer />
     </main>
   );
 }
