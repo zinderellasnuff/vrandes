@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact" id="contacto">
+    <section className="contact" id="contact">
       <div className="contact__container container">
         {/* Header */}
         <div className="contact__header">

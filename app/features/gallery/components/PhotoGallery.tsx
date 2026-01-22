@@ -40,7 +40,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
   }, [selectedPhoto, closeLightbox, nextPhoto, prevPhoto]);
 
   return (
-    <section className="gallery">
+    <section className="gallery" id="gallery">
       <div className="gallery__container container">
         {/* Header */}
         <div className="gallery__header">

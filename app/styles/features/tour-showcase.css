@@ -43,7 +43,22 @@
   text-transform: uppercase;
   letter-spacing: 4px;
   color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+}
+
+.tours__badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #E67E22, #D35400);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  border-radius: 20px;
   margin-bottom: var(--spacing-md);
+  margin-left: var(--spacing-sm);
 }
 
 .tours__title {
@@ -146,58 +161,137 @@
   transform: translateX(8px);
 }
 
-/* ==========================================================================
-   Tour Navigation
-   ========================================================================== */
-
-.tours__nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
+.tours__cta--primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  text-decoration: none;
 }
 
-.tours__nav-item {
+.tours__cta--primary:hover {
+  background: #d67419;
+  border-color: #d67419;
+  color: white;
+}
+
+/* ==========================================================================
+   Highlights Tags
+   ========================================================================== */
+
+.tours__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.tours__highlight {
+  display: inline-block;
+  background: rgba(212, 181, 158, 0.15);
+  color: #D4B59E;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 181, 158, 0.3);
+}
+
+/* ==========================================================================
+   Navigation Arrows
+   ========================================================================== */
+
+.tours__navigation {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-lg);
+  z-index: 10;
+}
+
+.tours__nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: var(--spacing-sm) var(--spacing-md);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.tours__nav-number {
-  font-family: var(--font-display);
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
+.tours__nav-arrow:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: scale(1.1);
 }
 
-.tours__nav-title {
-  font-family: var(--font-heading);
-  font-size: 11px;
+.tours__nav-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+.tours__nav-counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tours__nav-current {
+  color: var(--color-accent);
+  font-size: 24px;
   font-weight: 500;
+}
+
+.tours__nav-separator {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.tours__nav-total {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   Swipe Hint (Mobile Only)
+   ========================================================================== */
+
+.tours__swipe-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
   color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-heading);
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  margin-top: var(--spacing-lg);
+  animation: swipeHint 2s ease-in-out infinite;
 }
 
-.tours__nav-item:hover,
-.tours__nav-item--active {
-  border-color: var(--color-accent);
-  background: rgba(230, 126, 34, 0.1);
+.tours__swipe-hint svg {
+  width: 20px;
+  height: 20px;
 }
 
-.tours__nav-item:hover .tours__nav-title,
-.tours__nav-item--active .tours__nav-title {
-  color: white;
-}
-
-.tours__nav-item:hover .tours__nav-number,
-.tours__nav-item--active .tours__nav-number {
-  color: var(--color-accent);
+@keyframes swipeHint {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(10px);
+    opacity: 1;
+  }
 }
 
 /* ==========================================================================
@@ -464,13 +558,13 @@
     margin-right: auto;
   }
 
+  .tours__highlights {
+    justify-content: center;
+  }
+
   .tours__cta {
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .tours__nav {
-    justify-content: center;
   }
 
   .tours__image-wrapper {
@@ -499,12 +593,16 @@
     width: 50px;
   }
 
-  .tours__progress {
-    right: -40px;
+  .tours__navigation {
+    position: relative;
+    bottom: 0;
+    justify-content: center;
+    order: 3;
+    margin-top: var(--spacing-lg);
   }
 
-  .tours__progress-line {
-    height: 80px;
+  .tours__progress {
+    display: none;
   }
 }
 
@@ -522,6 +620,12 @@
   .tours__label {
     font-size: 12px;
     letter-spacing: 3px;
+  }
+
+  .tours__badge {
+    display: block;
+    margin-left: 0;
+    margin-top: var(--spacing-xs);
   }
 
   .tours__title {
@@ -552,22 +656,19 @@
     line-height: 1.7;
   }
 
+  .tours__highlights {
+    gap: 6px;
+  }
+
+  .tours__highlight {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+
   .tours__cta {
     padding: 16px 28px;
     font-size: 12px;
     letter-spacing: 2px;
-  }
-
-  .tours__nav-item {
-    padding: var(--spacing-xs) var(--spacing-sm);
-  }
-
-  .tours__nav-number {
-    font-size: 11px;
-  }
-
-  .tours__nav-title {
-    font-size: 10px;
   }
 
   .tours__image-wrapper {
@@ -597,17 +698,13 @@
     width: 40px;
   }
 
-  .tours__progress {
-    right: -30px;
+  .tours__navigation {
+    display: none;
   }
 
-  .tours__progress-line {
-    height: 60px;
-  }
-
-  .tours__progress-current,
-  .tours__progress-total {
-    font-size: 12px;
+  .tours__swipe-hint {
+    display: flex;
+    order: 4;
   }
 }
 
@@ -646,22 +743,15 @@
     font-size: 14px;
   }
 
+  .tours__highlight {
+    font-size: 9px;
+    padding: 5px 8px;
+  }
+
   .tours__cta {
     width: 100%;
     justify-content: center;
     padding: 16px 20px;
-  }
-
-  .tours__nav {
-    gap: 6px;
-  }
-
-  .tours__nav-number {
-    display: none;
-  }
-
-  .tours__nav-title {
-    font-size: 9px;
   }
 
   .tours__image-wrapper {
@@ -692,8 +782,8 @@
     width: 35px;
   }
 
-  .tours__progress {
-    display: none;
+  .tours__swipe-hint {
+    font-size: 11px;
   }
 }
 

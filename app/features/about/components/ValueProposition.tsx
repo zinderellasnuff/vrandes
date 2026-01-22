@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function ValueProposition() {
   return (
-    <section className="value-proposition">
+    <section className="value-proposition" id="about">
       {/* Top Section */}
       <div className="value-proposition__intro">
         <div className="container">
@@ -56,12 +56,7 @@ export default function ValueProposition() {
       {/* Bottom Section - Orange Background */}
       <div className="value-proposition__footer">
         <div className="container">
-          <h2 className="value-proposition__footer-title">Solo Vintage Rides</h2>
-          <p className="value-proposition__footer-text">
-            La única operadora en el sur del Perú asociada con Vintage Rides Francia,
-            con presencia en más de 40 países y 25 años liderando el turismo en
-            motocicleta.
-          </p>
+          <h2 className="value-proposition__footer-title">Solo Vintage Rides Andes</h2>
         </div>
       </div>
     </section>

@@ -104,26 +104,50 @@
   color: #D4B59E;
 }
 
-.footer__nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.footer__nav-icons {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: var(--spacing-sm);
 }
 
-.footer__nav-link {
-  font-family: var(--font-body);
-  font-size: 15px;
+.footer__nav-icon-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: color 0.3s ease;
-  display: inline-block;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  min-width: 70px;
 }
 
-.footer__nav-link:hover {
+.footer__nav-icon-link:hover {
   color: #D4B59E;
+  border-color: rgba(212, 181, 158, 0.3);
+  background: rgba(212, 181, 158, 0.05);
+  transform: translateY(-2px);
+}
+
+.footer__nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__nav-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.footer__nav-label {
+  font-family: var(--font-heading);
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* ==========================================================================
@@ -246,8 +270,18 @@
     font-size: 14px;
   }
 
-  .footer__nav-link {
-    font-size: 17px;
+  .footer__nav-icon-link {
+    padding: 14px;
+    min-width: 80px;
+  }
+
+  .footer__nav-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .footer__nav-label {
+    font-size: 10px;
   }
 
   .footer__social-link {
@@ -288,8 +322,18 @@
     font-size: 16px;
   }
 
-  .footer__nav-link {
-    font-size: 18px;
+  .footer__nav-icon-link {
+    padding: 16px;
+    min-width: 90px;
+  }
+
+  .footer__nav-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer__nav-label {
+    font-size: 11px;
   }
 
   .footer__social-link {
@@ -343,8 +387,8 @@
     text-align: center;
   }
 
-  .footer__nav-list {
-    align-items: center;
+  .footer__nav-icons {
+    justify-content: center;
   }
 }
 
@@ -406,8 +450,18 @@
     letter-spacing: 2px;
   }
 
-  .footer__nav-link {
-    font-size: 14px;
+  .footer__nav-icon-link {
+    padding: 10px;
+    min-width: 60px;
+  }
+
+  .footer__nav-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer__nav-label {
+    font-size: 8px;
   }
 
   .footer__social-link {
