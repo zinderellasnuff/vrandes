@@ -13,6 +13,30 @@
   padding-top: 100px;
 }
 
+/* ==========================================================================
+   Loading Animation State
+   ========================================================================== */
+
+.hero__video,
+.hero__content,
+.hero__decorations {
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero--loaded .hero__video {
+  opacity: 1;
+}
+
+.hero--loaded .hero__content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero--loaded .hero__decorations {
+  opacity: 1;
+}
+
 
 /* ==========================================================================
    Hero Video Background
@@ -85,6 +109,31 @@
   margin-bottom: var(--spacing-sm);
 }
 
+.hero__title-main {
+  display: block;
+  background: linear-gradient(135deg, #ffffff 0%, #D4B59E 50%, #ffffff 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+.hero__title-secondary {
+  display: block;
+  font-size: clamp(48px, 4vw, 100px);
+  color: white;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
 .hero__subtitle {
   display: block;
   font-style: italic;
@@ -92,6 +141,136 @@
   font-size: clamp(48px, 4vw, 100px);
   white-space: nowrap;
   color: #D4B59E;
+  text-shadow: 0 0 40px rgba(212, 181, 158, 0.3);
+}
+
+/* ==========================================================================
+   Decorative Elements
+   ========================================================================== */
+
+.hero__decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero__compass {
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(212, 181, 158, 0.2);
+  border-radius: 50%;
+  animation: rotateCompass 20s linear infinite;
+}
+
+.hero__compass::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(212, 181, 158, 0.15);
+  border-radius: 50%;
+}
+
+.hero__compass::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 40%;
+  background: linear-gradient(to bottom, #D4B59E, transparent);
+  transform: translate(-50%, -100%);
+}
+
+@keyframes rotateCompass {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+.hero__line {
+  position: absolute;
+  width: 1px;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba(212, 181, 158, 0.3), transparent);
+}
+
+.hero__line--left {
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: lineFloat 3s ease-in-out infinite;
+}
+
+.hero__line--right {
+  right: 200px;
+  bottom: 100px;
+  animation: lineFloat 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes lineFloat {
+  0%, 100% { opacity: 0.3; height: 100px; }
+  50% { opacity: 0.6; height: 120px; }
+}
+
+/* ==========================================================================
+   Scroll Indicator
+   ========================================================================== */
+
+.hero__scroll-indicator {
+  position: absolute;
+  right: 40px;
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero__scroll-text {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.5);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__scroll-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: #D4B59E;
+  border-radius: 50%;
+  animation: scrollDot 2s ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+  0% { top: 0; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
 }
 
 
@@ -207,9 +386,24 @@
     font-size: 64px;
   }
 
-  .hero__title span.hero__title,
+  .hero__title-secondary,
   .hero__subtitle {
     font-size: 42px;
+  }
+
+  .hero__compass {
+    width: 80px;
+    height: 80px;
+    right: 40px;
+  }
+
+  .hero__line--left {
+    left: 30px;
+  }
+
+  .hero__scroll-indicator {
+    right: 20px;
+    bottom: 40px;
   }
 }
 
@@ -247,9 +441,27 @@
     font-size: 48px;
   }
 
-  .hero__title span.hero__title,
+  .hero__title-secondary,
   .hero__subtitle {
     font-size: 32px;
+  }
+
+  .hero__compass,
+  .hero__line {
+    display: none;
+  }
+
+  .hero__scroll-indicator {
+    right: 10px;
+    bottom: 30px;
+  }
+
+  .hero__scroll-line {
+    height: 40px;
+  }
+
+  .hero__scroll-text {
+    font-size: 9px;
   }
 }
 
@@ -287,9 +499,13 @@
     font-size: 36px;
   }
 
-  .hero__title span.hero__title,
+  .hero__title-secondary,
   .hero__subtitle {
     font-size: 24px;
+  }
+
+  .hero__scroll-indicator {
+    display: none;
   }
 }
 
@@ -326,7 +542,7 @@
     font-size: 28px;
   }
 
-  .hero__title span.hero__title,
+  .hero__title-secondary,
   .hero__subtitle {
     font-size: 20px;
   }
