@@ -122,8 +122,8 @@ export default function Home() {
         videoSrc="/videos/hero-background.mp4"
         title="Vive el Perú"
       />
-      <TourShowcase />
       <ValueProposition />
+      <TourShowcase />
       <Testimonials testimonials={testimonials} />
       <PhotoGallery photos={photos} />
       <Contact />

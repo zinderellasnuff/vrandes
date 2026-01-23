@@ -145,6 +145,38 @@
 }
 
 /* ==========================================================================
+   WhatsApp Button
+   ========================================================================== */
+
+.header__whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #25D366;
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.header__whatsapp-btn:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.header__whatsapp-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================================================
    Mobile Menu Button (Hidden on Desktop)
    ========================================================================== */
 
@@ -298,6 +330,11 @@
 
 .header__menu-lang:hover {
   color: #D4B59E;
+}
+
+.header__menu-footer .header__whatsapp-btn {
+  padding: 14px 28px;
+  font-size: 14px;
 }
 
 /* ==========================================================================
