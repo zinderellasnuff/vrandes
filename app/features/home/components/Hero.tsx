@@ -44,15 +44,15 @@ export default function Hero({ videoSrc, title }: HeroProps) {
   return (
     <section className={`hero ${isLoaded ? 'hero--loaded' : ''}`} id="hero" ref={heroRef}>
       {/* Video Background */}
-      <div className="hero__video" ref={videoRef}>
-        <video autoPlay loop muted playsInline>
+      <div className="hero__video" ref={videoRef} aria-hidden="true">
+        <video autoPlay loop muted playsInline aria-hidden="true">
           <source src={videoSrc} type="video/mp4" />
         </video>
         <div className="hero__overlay"></div>
       </div>
 
       {/* Decorative Elements */}
-      <div className="hero__decorations">
+      <div className="hero__decorations" aria-hidden="true">
         <div className="hero__compass"></div>
         <div className="hero__line hero__line--left"></div>
         <div className="hero__line hero__line--right"></div>
@@ -69,10 +69,10 @@ export default function Hero({ videoSrc, title }: HeroProps) {
           </h1>
 
           {/* CTA Button */}
-          <div className="hero__cta-group">
-            <a href="#tours" className="hero__cta hero__cta--primary">
+          <div className="hero__cta-group" role="group" aria-label="Acciones principales">
+            <a href="#tours" className="hero__cta hero__cta--primary" role="button">
               <span>Ver Expediciones</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>

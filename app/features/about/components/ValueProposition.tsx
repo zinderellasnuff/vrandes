@@ -176,7 +176,9 @@ export default function ValueProposition() {
                   alt={`${slide.title} ${slide.highlight}`}
                   fill
                   style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority={index === 0}
+                  loading={index === 0 ? 'eager' : 'lazy'}
                 />
               </div>
             ))}

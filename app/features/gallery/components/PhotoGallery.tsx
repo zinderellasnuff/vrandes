@@ -40,7 +40,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
   }, [selectedPhoto, closeLightbox, nextPhoto, prevPhoto]);
 
   return (
-    <section className="gallery" id="gallery">
+    <section className="gallery" id="gallery" aria-label="Galería de fotos">
       <div className="gallery__container container">
         {/* Header */}
         <div className="gallery__header reveal">
@@ -58,10 +58,12 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
         {/* Grid */}
         <div className="gallery__grid reveal reveal--scale">
           {photos.map((photo, index) => (
-            <div
+            <button
               key={photo.id}
               className={`gallery__item gallery__item--${photo.size || 'medium'}`}
               onClick={() => openLightbox(index)}
+              aria-label={`Ver ${photo.alt}${photo.caption ? `: ${photo.caption}` : ''}`}
+              type="button"
             >
               <div className="gallery__image-wrapper">
                 <Image
@@ -70,6 +72,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
                   fill
                   style={{ objectFit: 'cover' }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading={index < 4 ? 'eager' : 'lazy'}
                 />
                 <div className="gallery__overlay">
                   <div className="gallery__overlay-content">
@@ -83,14 +86,20 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
                   </div>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
 
       {/* Lightbox */}
       {selectedPhoto !== null && (
-        <div className="gallery__lightbox" onClick={closeLightbox}>
+        <div
+          className="gallery__lightbox"
+          onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Visor de imagen: ${photos[selectedPhoto].alt}`}
+        >
           <button
             className="gallery__lightbox-close"
             onClick={closeLightbox}
@@ -124,6 +133,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
                 alt={photos[selectedPhoto].alt}
                 fill
                 style={{ objectFit: 'contain' }}
+                sizes="100vw"
                 priority
               />
             </div>

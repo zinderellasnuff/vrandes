@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact" id="contact">
+    <section className="contact" id="contact" aria-label="Formulario de contacto">
       <div className="contact__container container">
         {/* Header */}
         <div className="contact__header reveal">
@@ -51,9 +51,9 @@ export default function Contact() {
         </div>
 
         {/* Form */}
-        <form className="contact__form reveal" onSubmit={handleSubmit}>
+        <form className="contact__form reveal" onSubmit={handleSubmit} aria-label="Formulario de contacto">
           {/* Decorative element */}
-          <div className="contact__form-decoration">
+          <div className="contact__form-decoration" aria-hidden="true">
             <svg viewBox="0 0 100 100" className="contact__form-icon">
               <path d="M50 10 L90 90 L10 90 Z" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.3"/>
               <circle cx="50" cy="50" r="20" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.2"/>

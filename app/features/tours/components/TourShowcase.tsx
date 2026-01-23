@@ -160,13 +160,15 @@ export default function TourShowcase() {
   }, [nextTour, prevTour]);
 
   return (
-    <section className="tours" id="tours">
+    <section className="tours" id="tours" aria-label="Expediciones disponibles">
       <div
         className="tours__container container"
         ref={containerRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        role="region"
+        aria-roledescription="carrusel de tours"
       >
         {/* Left Side - Tour Info */}
         <div className="tours__info">
@@ -229,6 +231,9 @@ export default function TourShowcase() {
             className="tours__carousel"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
+            role="group"
+            aria-roledescription="carrusel de imágenes"
+            aria-label={`Imágenes de ${activeTour.title}`}
           >
             {activeTour.images.map((image, index) => (
               <div
@@ -240,6 +245,9 @@ export default function TourShowcase() {
                   alt={`${activeTour.title} - ${index + 1}`}
                   fill
                   style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority={index === 0 && activeIndex === 0}
+                  loading={index === 0 && activeIndex === 0 ? 'eager' : 'lazy'}
                 />
               </div>
             ))}

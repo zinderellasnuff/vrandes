@@ -27,8 +27,8 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="testimonials">
-      <div className="testimonials__container container">
+    <section className="testimonials" aria-label="Testimonios de clientes">
+      <div className="testimonials__container container" role="region" aria-roledescription="carrusel de testimonios">
         {/* Left Side - Header */}
         <div className="testimonials__header reveal reveal--left">
           <span className="testimonials__label">Testimonios</span>
@@ -74,7 +74,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="testimonials__quote-icon">
+          <div className="testimonials__quote-icon" aria-hidden="true">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
               <path d="M11 7.5V11.5C11 14 9.5 16 7.5 17L6.5 15.5C7.5 15 8.5 13.5 8.5 11.5H6V7.5H11ZM18 7.5V11.5C18 14 16.5 16 14.5 17L13.5 15.5C14.5 15 15.5 13.5 15.5 11.5H13V7.5H18Z"/>
             </svg>
@@ -95,9 +95,9 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
               <p className="testimonials__author-name">{currentTestimonial.name}</p>
               <p className="testimonials__author-location">{currentTestimonial.location}</p>
             </div>
-            <div className="testimonials__rating">
+            <div className="testimonials__rating" role="img" aria-label={`Calificación: ${currentTestimonial.rating} de 5 estrellas`}>
               {[...Array(currentTestimonial.rating)].map((_, i) => (
-                <svg key={i} className="testimonials__star" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <svg key={i} className="testimonials__star" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
                 </svg>
               ))}
