@@ -30,7 +30,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
     <section className="testimonials">
       <div className="testimonials__container container">
         {/* Left Side - Header */}
-        <div className="testimonials__header">
+        <div className="testimonials__header reveal reveal--left">
           <span className="testimonials__label">Testimonios</span>
           <h2 className="testimonials__title display-text">
             Historias de
@@ -70,7 +70,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 
         {/* Right Side - Testimonial Card */}
         <div
-          className="testimonials__content"
+          className="testimonials__content reveal reveal--right"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >

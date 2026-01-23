@@ -43,7 +43,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
     <section className="gallery" id="gallery">
       <div className="gallery__container container">
         {/* Header */}
-        <div className="gallery__header">
+        <div className="gallery__header reveal">
           <span className="gallery__label">Galería</span>
           <h2 className="gallery__title display-text">
             Rutas que quedan
@@ -56,7 +56,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
         </div>
 
         {/* Grid */}
-        <div className="gallery__grid">
+        <div className="gallery__grid reveal reveal--scale">
           {photos.map((photo, index) => (
             <div
               key={photo.id}

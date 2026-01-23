@@ -106,7 +106,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__container container">
         {/* Main content */}
-        <div className="footer__content">
+        <div className="footer__content reveal">
           {/* Brand */}
           <div className="footer__brand">
             <Link href="/" className="footer__logo">

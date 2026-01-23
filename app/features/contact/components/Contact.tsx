@@ -38,7 +38,7 @@ export default function Contact() {
     <section className="contact" id="contact">
       <div className="contact__container container">
         {/* Header */}
-        <div className="contact__header">
+        <div className="contact__header reveal">
           <span className="contact__label">Contacto</span>
           <h2 className="contact__title display-text">
             Comienza tu
@@ -51,7 +51,7 @@ export default function Contact() {
         </div>
 
         {/* Form */}
-        <form className="contact__form" onSubmit={handleSubmit}>
+        <form className="contact__form reveal" onSubmit={handleSubmit}>
           {/* Decorative element */}
           <div className="contact__form-decoration">
             <svg viewBox="0 0 100 100" className="contact__form-icon">

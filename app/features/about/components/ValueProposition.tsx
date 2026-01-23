@@ -84,8 +84,8 @@ export default function ValueProposition() {
       {/* Top Section */}
       <div className="value-proposition__intro">
         <div className="container">
-          <h2 className="value-proposition__title">Lo que nos hace diferentes</h2>
-          <p className="value-proposition__description">
+          <h2 className="value-proposition__title reveal">Lo que nos hace diferentes</h2>
+          <p className="value-proposition__description reveal">
             Por más de 15 años, hemos compartido la pasión por los viajes en motocicleta.
             Conocemos cada ruta, cada mirador, cada secreto que el sur del Perú esconde.
           </p>
@@ -99,7 +99,7 @@ export default function ValueProposition() {
         onMouseLeave={() => setIsPaused(false)}
       >
         {/* Left Side - Dark Background with Carousel Text */}
-        <div className="value-proposition__left">
+        <div className="value-proposition__left reveal reveal--left">
           <div className="value-proposition__logo">
             <Image
               src="/images/logo.png"
@@ -164,7 +164,7 @@ export default function ValueProposition() {
         </div>
 
         {/* Right Side - Image Carousel */}
-        <div className="value-proposition__right">
+        <div className="value-proposition__right reveal reveal--right">
           <div className="value-proposition__image">
             {slidesData.map((slide, index) => (
               <div
@@ -187,7 +187,7 @@ export default function ValueProposition() {
       {/* Bottom Section - Orange Background */}
       <div className="value-proposition__footer">
         <div className="container">
-          <h2 className="value-proposition__footer-title">Solo Vintage Rides Andes</h2>
+          <h2 className="value-proposition__footer-title reveal">Solo Vintage Rides Andes</h2>
         </div>
       </div>
     </section>
