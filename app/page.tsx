@@ -72,42 +72,42 @@ const photos = [
   },
   {
     id: '3',
-    src: '/images/tours/canones-2.jpg',
+    src: '/images/tours/alacarte3.jpeg',
     alt: 'Vista panorámica de montañas',
     caption: 'Altiplano peruano',
     size: 'medium' as const
   },
   {
     id: '4',
-    src: '/images/tours/altiplano-1.jpg',
+    src: '/images/tours/alacarte3.jpeg',
     alt: 'Lago en el altiplano',
     caption: 'Lagos de altura',
     size: 'wide' as const
   },
   {
     id: '5',
-    src: '/images/tours/desierto-1.jpg',
+    src: '/images/tours/alacarte3.jpeg',
     alt: 'Desierto costero',
     caption: 'Costa del Pacífico',
     size: 'tall' as const
   },
   {
     id: '6',
-    src: '/images/tours/ushuaia-2.jpg',
+    src: '/images/tours/alacarte3.jpeg',
     alt: 'Paisaje patagónico',
     caption: 'Patagonia argentina',
     size: 'medium' as const
   },
   {
     id: '7',
-    src: '/images/tours/canones-3.jpg',
+    src: '/images/tours/alacarte3.jpeg',
     alt: 'Montañas nevadas',
     caption: 'Volcanes de Arequipa',
     size: 'medium' as const
   },
   {
     id: '8',
-    src: '/images/tours/altiplano-2.jpg',
+    src: '/images/tours/alacarte3.jpeg',
     alt: 'Carretera en el altiplano',
     caption: 'Rutas de altura',
     size: 'large' as const

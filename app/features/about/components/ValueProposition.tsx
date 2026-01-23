@@ -18,7 +18,7 @@ const slidesData: Slide[] = [
     highlight: '15 países',
     subtitle: '',
     content: 'Somos parte de la familia VINTAGE RIDES, la famosa agencia de viajes en moto. Con sede en Lyon, Francia, nació hace 20 años en India y hoy ofrece más de 100 tours en 15 países alrededor del mundo.',
-    image: '/images/about/world-map.jpg'
+    image: '/images/about/world-map.jpeg'
   },
   {
     id: 2,
