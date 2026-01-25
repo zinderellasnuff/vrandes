@@ -440,8 +440,13 @@
     display: none;
   }
 
+  /* Hide hamburger menu - using Bottom Nav instead */
   .header__mobile-btn {
-    display: flex;
+    display: none;
+  }
+
+  .header__menu-overlay {
+    display: none;
   }
 }
 
@@ -453,25 +458,6 @@
   .header__logo img {
     height: 45px;
   }
-
-  .header__mobile-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-  }
-
-  .header__mobile-icon {
-    width: 18px;
-  }
-
-  .header__menu-link {
-    font-size: 24px;
-  }
-
-  .header__menu-icon svg {
-    width: 24px;
-    height: 24px;
-  }
 }
 
 /* ==========================================================================
@@ -481,9 +467,5 @@
 @media (max-width: 360px) {
   .header__logo img {
     height: 40px;
-  }
-
-  .header__menu-link {
-    font-size: 20px;
   }
 }

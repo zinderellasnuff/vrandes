@@ -115,6 +115,26 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
               />
             ))}
           </div>
+
+          {/* Floating Navigation Buttons */}
+          <button
+            className="testimonials__float-btn testimonials__float-btn--prev"
+            onClick={prevTestimonial}
+            aria-label="Testimonio anterior"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <button
+            className="testimonials__float-btn testimonials__float-btn--next"
+            onClick={nextTestimonial}
+            aria-label="Siguiente testimonio"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
     </section>

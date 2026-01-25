@@ -1,5 +1,6 @@
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import BottomNav from './components/layout/BottomNav';
 import Hero from './features/home/components/Hero';
 import ValueProposition from './features/about/components/ValueProposition';
 import Testimonials from './features/testimonials/components/Testimonials';
@@ -122,12 +123,13 @@ export default function Home() {
         videoSrc="/videos/hero-background.mp4"
         title="Vive el Perú"
       />
+            <TourShowcase />
       <ValueProposition />
-      <TourShowcase />
       <Testimonials testimonials={testimonials} />
       <PhotoGallery photos={photos} />
       <Contact />
       <Footer />
+      <BottomNav />
     </main>
   );
 }

@@ -137,6 +137,40 @@
   position: relative;
 }
 
+/* Floating Navigation Buttons */
+.testimonials__float-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 56px;
+  height: 56px;
+  background: var(--color-accent);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(230, 126, 34, 0.4);
+}
+
+.testimonials__float-btn:hover {
+  background: var(--color-secondary);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 25px rgba(44, 62, 80, 0.5);
+}
+
+.testimonials__float-btn--prev {
+  left: -28px;
+}
+
+.testimonials__float-btn--next {
+  right: -28px;
+}
+
 .testimonials__quote-icon {
   color: #D4B59E;
   margin-bottom: var(--spacing-md);
@@ -349,6 +383,14 @@
   .testimonials__content {
     padding: var(--spacing-xl);
   }
+
+  .testimonials__float-btn--prev {
+    left: -20px;
+  }
+
+  .testimonials__float-btn--next {
+    right: -20px;
+  }
 }
 
 /* ==========================================================================
@@ -379,6 +421,8 @@
 
   .testimonials__content {
     padding: var(--spacing-lg);
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
   }
 
   .testimonials__text {
@@ -404,6 +448,19 @@
 
   .testimonials__progress-dot--active {
     width: 50px;
+  }
+
+  .testimonials__float-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .testimonials__float-btn--prev {
+    left: 8px;
+  }
+
+  .testimonials__float-btn--next {
+    right: 8px;
   }
 }
 
@@ -437,6 +494,8 @@
 
   .testimonials__content {
     padding: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
   }
 
   .testimonials__quote-icon svg {
@@ -479,6 +538,24 @@
 
   .testimonials__progress-dot--active {
     width: 40px;
+  }
+
+  .testimonials__float-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .testimonials__float-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .testimonials__float-btn--prev {
+    left: 4px;
+  }
+
+  .testimonials__float-btn--next {
+    right: 4px;
   }
 }
 

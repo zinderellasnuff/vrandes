@@ -121,45 +121,16 @@ export default function ValueProposition() {
             <p className="value-proposition__slide-content">{activeSlide.content}</p>
           </div>
 
-          {/* Navigation */}
-          <div className="value-proposition__nav">
-            <button
-              className="value-proposition__nav-btn"
-              onClick={prevSlide}
-              aria-label="Anterior"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-
-            <div className="value-proposition__dots">
-              {slidesData.map((_, index) => (
-                <button
-                  key={index}
-                  className={`value-proposition__dot ${index === currentSlide ? 'value-proposition__dot--active' : ''}`}
-                  onClick={() => goToSlide(index)}
-                  aria-label={`Slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            <button
-              className="value-proposition__nav-btn"
-              onClick={nextSlide}
-              aria-label="Siguiente"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
-
-          {/* Counter */}
-          <div className="value-proposition__counter">
-            <span className="value-proposition__counter-current">0{currentSlide + 1}</span>
-            <span className="value-proposition__counter-separator">/</span>
-            <span className="value-proposition__counter-total">0{slidesData.length}</span>
+          {/* Dots indicator */}
+          <div className="value-proposition__dots">
+            {slidesData.map((_, index) => (
+              <button
+                key={index}
+                className={`value-proposition__dot ${index === currentSlide ? 'value-proposition__dot--active' : ''}`}
+                onClick={() => goToSlide(index)}
+                aria-label={`Slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
 
@@ -183,7 +154,28 @@ export default function ValueProposition() {
               </div>
             ))}
           </div>
+
         </div>
+
+        {/* Edge Navigation Buttons - Full section width */}
+        <button
+          className="value-proposition__edge-btn value-proposition__edge-btn--prev"
+          onClick={prevSlide}
+          aria-label="Anterior"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <button
+          className="value-proposition__edge-btn value-proposition__edge-btn--next"
+          onClick={nextSlide}
+          aria-label="Siguiente"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
       </div>
 
       {/* Bottom Section - Orange Background */}
