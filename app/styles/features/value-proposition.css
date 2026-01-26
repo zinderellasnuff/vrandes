@@ -50,6 +50,8 @@
   grid-template-columns: 1fr 1fr;
   min-height: 700px;
   position: relative;
+  overflow: visible;
+  margin: 0 60px;
 }
 
 /* Left Side - Dark Background */
@@ -194,11 +196,11 @@
 }
 
 .value-proposition__edge-btn--prev {
-  left: 20px;
+  left: -30px;
 }
 
 .value-proposition__edge-btn--next {
-  right: 20px;
+  right: -30px;
 }
 
 .value-proposition__image {

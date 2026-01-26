@@ -2,8 +2,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { PhotoGalleryProps } from '@/app/types';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
-export default function PhotoGallery({ photos }: PhotoGalleryProps) {
+interface PhotoGalleryWithDictProps extends PhotoGalleryProps {
+  dict: Dictionary;
+}
+
+export default function PhotoGallery({ photos, dict }: PhotoGalleryWithDictProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
 
   const openLightbox = (index: number) => {
@@ -40,19 +45,14 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
   }, [selectedPhoto, closeLightbox, nextPhoto, prevPhoto]);
 
   return (
-    <section className="gallery" id="gallery" aria-label="Galería de fotos">
+    <section className="gallery" id="gallery" aria-label={dict.gallery.label}>
       <div className="gallery__container container">
         {/* Header */}
         <div className="gallery__header reveal">
-          <span className="gallery__label">Galería</span>
+          <span className="gallery__label">{dict.gallery.label}</span>
           <h2 className="gallery__title display-text">
-            Rutas que quedan
-            <span className="gallery__title-highlight">grabadas para siempre</span>
+            {dict.gallery.title}
           </h2>
-          <p className="gallery__subtitle">
-            Cada viaje es una historia, cada foto un recuerdo inolvidable.
-            Mira lo que te espera en las carreteras del sur del Perú.
-          </p>
         </div>
 
         {/* Grid */}
@@ -62,7 +62,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
               key={photo.id}
               className={`gallery__item gallery__item--${photo.size || 'medium'}`}
               onClick={() => openLightbox(index)}
-              aria-label={`Ver ${photo.alt}${photo.caption ? `: ${photo.caption}` : ''}`}
+              aria-label={`${photo.alt}${photo.caption ? `: ${photo.caption}` : ''}`}
               type="button"
             >
               <div className="gallery__image-wrapper">
@@ -98,12 +98,12 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
-          aria-label={`Visor de imagen: ${photos[selectedPhoto].alt}`}
+          aria-label={photos[selectedPhoto].alt}
         >
           <button
             className="gallery__lightbox-close"
             onClick={closeLightbox}
-            aria-label="Cerrar"
+            aria-label={dict.gallery.close}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -116,7 +116,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
               e.stopPropagation();
               prevPhoto();
             }}
-            aria-label="Anterior"
+            aria-label={dict.gallery.previous}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -155,7 +155,7 @@ export default function PhotoGallery({ photos }: PhotoGalleryProps) {
               e.stopPropagation();
               nextPhoto();
             }}
-            aria-label="Siguiente"
+            aria-label={dict.gallery.next}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

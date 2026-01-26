@@ -350,38 +350,37 @@
   cursor: pointer;
 }
 
-/* Edge Navigation Buttons - Full section width */
-.tours__edge-btn {
+/* Floating Navigation Buttons - Inside Image */
+.tours__float-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 20;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.95);
+  z-index: 10;
+  width: 56px;
+  height: 56px;
+  background: var(--color-accent);
   border: none;
   border-radius: 50%;
-  color: var(--color-secondary);
+  color: white;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(230, 126, 34, 0.4);
 }
 
-.tours__edge-btn:hover {
-  background: var(--color-accent);
-  color: white;
+.tours__float-btn:hover {
+  background: var(--color-secondary);
   transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 30px rgba(230, 126, 34, 0.5);
+  box-shadow: 0 6px 25px rgba(44, 62, 80, 0.5);
 }
 
-.tours__edge-btn--prev {
+.tours__float-btn--prev {
   left: 20px;
 }
 
-.tours__edge-btn--next {
+.tours__float-btn--next {
   right: 20px;
 }
 
@@ -639,16 +638,16 @@
     margin-right: auto;
   }
 
-  .tours__edge-btn {
+  .tours__float-btn {
     width: 52px;
     height: 52px;
   }
 
-  .tours__edge-btn--prev {
+  .tours__float-btn--prev {
     left: 16px;
   }
 
-  .tours__edge-btn--next {
+  .tours__float-btn--next {
     right: 16px;
   }
 
@@ -761,8 +760,8 @@
     align-items: center;
   }
 
-  /* Hide edge buttons on mobile */
-  .tours__edge-btn {
+  /* Hide floating buttons on mobile - using swipe */
+  .tours__float-btn {
     display: none;
   }
 
@@ -799,7 +798,8 @@
 
   .tours__swipe-hint {
     display: flex;
-    order: 4;
+    order: 0;
+    margin-top: 0;
   }
 }
 

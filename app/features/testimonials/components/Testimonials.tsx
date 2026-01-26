@@ -1,8 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { TestimonialsProps } from '@/app/types';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
-export default function Testimonials({ testimonials }: TestimonialsProps) {
+interface TestimonialsWithDictProps extends TestimonialsProps {
+  dict: Dictionary;
+}
+
+export default function Testimonials({ testimonials, dict }: TestimonialsWithDictProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -27,45 +32,14 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="testimonials" aria-label="Testimonios de clientes">
-      <div className="testimonials__container container" role="region" aria-roledescription="carrusel de testimonios">
+    <section className="testimonials" aria-label={dict.testimonials.label}>
+      <div className="testimonials__container container" role="region" aria-roledescription="testimonial carousel">
         {/* Left Side - Header */}
         <div className="testimonials__header reveal reveal--left">
-          <span className="testimonials__label">Testimonios</span>
+          <span className="testimonials__label">{dict.testimonials.label}</span>
           <h2 className="testimonials__title display-text">
-            Historias de
-            <span className="testimonials__title-highlight">aventura</span>
+            {dict.testimonials.title}
           </h2>
-          <p className="testimonials__subtitle">
-            Lo que dicen quienes ya vivieron la experiencia Vintage Rides
-          </p>
-
-          {/* Navigation */}
-          <div className="testimonials__nav">
-            <button
-              className="testimonials__nav-btn"
-              onClick={prevTestimonial}
-              aria-label="Anterior"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            <div className="testimonials__counter">
-              <span className="testimonials__counter-current">0{currentIndex + 1}</span>
-              <span className="testimonials__counter-separator">/</span>
-              <span className="testimonials__counter-total">0{testimonials.length}</span>
-            </div>
-            <button
-              className="testimonials__nav-btn"
-              onClick={nextTestimonial}
-              aria-label="Siguiente"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
         </div>
 
         {/* Right Side - Testimonial Card */}
@@ -95,7 +69,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
               <p className="testimonials__author-name">{currentTestimonial.name}</p>
               <p className="testimonials__author-location">{currentTestimonial.location}</p>
             </div>
-            <div className="testimonials__rating" role="img" aria-label={`Calificación: ${currentTestimonial.rating} de 5 estrellas`}>
+            <div className="testimonials__rating" role="img" aria-label={`Rating: ${currentTestimonial.rating} of 5 stars`}>
               {[...Array(currentTestimonial.rating)].map((_, i) => (
                 <svg key={i} className="testimonials__star" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
@@ -111,7 +85,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
                 key={index}
                 className={`testimonials__progress-dot ${index === currentIndex ? 'testimonials__progress-dot--active' : ''}`}
                 onClick={() => setCurrentIndex(index)}
-                aria-label={`Ir al testimonio ${index + 1}`}
+                aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>
@@ -120,7 +94,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
           <button
             className="testimonials__float-btn testimonials__float-btn--prev"
             onClick={prevTestimonial}
-            aria-label="Testimonio anterior"
+            aria-label={dict.gallery.previous}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -129,7 +103,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
           <button
             className="testimonials__float-btn testimonials__float-btn--next"
             onClick={nextTestimonial}
-            aria-label="Siguiente testimonio"
+            aria-label={dict.gallery.next}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

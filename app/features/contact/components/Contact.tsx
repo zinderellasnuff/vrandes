@@ -1,26 +1,33 @@
 'use client';
 import React, { useState } from 'react';
 import '@/app/styles/features/contact.css';
+import type { Locale } from '@/lib/i18n/config';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
 interface FormData {
-  nombre: string;
-  apellido: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  telefono: string;
-  pais: string;
-  ciudad: string;
-  mensaje: string;
+  phone: string;
+  country: string;
+  city: string;
+  message: string;
 }
 
-export default function Contact() {
+interface ContactProps {
+  lang: Locale;
+  dict: Dictionary;
+}
+
+export default function Contact({ dict }: ContactProps) {
   const [formData, setFormData] = useState<FormData>({
-    nombre: '',
-    apellido: '',
+    firstName: '',
+    lastName: '',
     email: '',
-    telefono: '',
-    pais: '',
-    ciudad: '',
-    mensaje: ''
+    phone: '',
+    country: '',
+    city: '',
+    message: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -30,28 +37,26 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic will be added later
     console.log('Form submitted:', formData);
   };
 
   return (
-    <section className="contact" id="contact" aria-label="Formulario de contacto">
+    <section className="contact" id="contact" aria-label={dict.contact.label}>
       <div className="contact__container container">
         {/* Header */}
         <div className="contact__header reveal">
-          <span className="contact__label">Contacto</span>
+          <span className="contact__label">{dict.contact.label}</span>
           <h2 className="contact__title display-text">
-            Comienza tu
-            <span className="contact__title-highlight">aventura</span>
+            {dict.contact.title}
+            <span className="contact__title-highlight">{dict.contact.titleHighlight}</span>
           </h2>
           <p className="contact__subtitle">
-            ¿Listo para recorrer las rutas más espectaculares del Perú?
-            Escríbenos y planificamos juntos tu próxima aventura.
+            {dict.contact.subtitle}
           </p>
         </div>
 
         {/* Form */}
-        <form className="contact__form reveal" onSubmit={handleSubmit} aria-label="Formulario de contacto">
+        <form className="contact__form reveal" onSubmit={handleSubmit} aria-label={dict.contact.label}>
           {/* Decorative element */}
           <div className="contact__form-decoration" aria-hidden="true">
             <svg viewBox="0 0 100 100" className="contact__form-icon">
@@ -62,35 +67,35 @@ export default function Contact() {
           </div>
 
           <div className="contact__form-grid">
-            {/* Nombre */}
+            {/* First Name */}
             <div className="contact__field">
-              <label className="contact__label-field" htmlFor="nombre">
-                Nombre
+              <label className="contact__label-field" htmlFor="firstName">
+                {dict.contact.form.firstName}
               </label>
               <input
                 type="text"
-                id="nombre"
-                name="nombre"
+                id="firstName"
+                name="firstName"
                 className="contact__input"
-                placeholder="Tu nombre"
-                value={formData.nombre}
+                placeholder={dict.contact.form.firstNamePlaceholder}
+                value={formData.firstName}
                 onChange={handleChange}
                 required
               />
             </div>
 
-            {/* Apellido */}
+            {/* Last Name */}
             <div className="contact__field">
-              <label className="contact__label-field" htmlFor="apellido">
-                Apellido
+              <label className="contact__label-field" htmlFor="lastName">
+                {dict.contact.form.lastName}
               </label>
               <input
                 type="text"
-                id="apellido"
-                name="apellido"
+                id="lastName"
+                name="lastName"
                 className="contact__input"
-                placeholder="Tu apellido"
-                value={formData.apellido}
+                placeholder={dict.contact.form.lastNamePlaceholder}
+                value={formData.lastName}
                 onChange={handleChange}
                 required
               />
@@ -99,80 +104,80 @@ export default function Contact() {
             {/* Email */}
             <div className="contact__field">
               <label className="contact__label-field" htmlFor="email">
-                E-mail
+                {dict.contact.form.email}
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 className="contact__input"
-                placeholder="correo@ejemplo.com"
+                placeholder={dict.contact.form.emailPlaceholder}
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
             </div>
 
-            {/* Teléfono */}
+            {/* Phone */}
             <div className="contact__field">
-              <label className="contact__label-field" htmlFor="telefono">
-                Teléfono
+              <label className="contact__label-field" htmlFor="phone">
+                {dict.contact.form.phone}
               </label>
               <input
                 type="tel"
-                id="telefono"
-                name="telefono"
+                id="phone"
+                name="phone"
                 className="contact__input"
-                placeholder="+51 999 999 999"
-                value={formData.telefono}
+                placeholder={dict.contact.form.phonePlaceholder}
+                value={formData.phone}
                 onChange={handleChange}
               />
             </div>
 
-            {/* País */}
+            {/* Country */}
             <div className="contact__field">
-              <label className="contact__label-field" htmlFor="pais">
-                País
+              <label className="contact__label-field" htmlFor="country">
+                {dict.contact.form.country}
               </label>
               <input
                 type="text"
-                id="pais"
-                name="pais"
+                id="country"
+                name="country"
                 className="contact__input"
-                placeholder="Tu país"
-                value={formData.pais}
+                placeholder={dict.contact.form.countryPlaceholder}
+                value={formData.country}
                 onChange={handleChange}
               />
             </div>
 
-            {/* Ciudad */}
+            {/* City */}
             <div className="contact__field">
-              <label className="contact__label-field" htmlFor="ciudad">
-                Ciudad
+              <label className="contact__label-field" htmlFor="city">
+                {dict.contact.form.city}
               </label>
               <input
                 type="text"
-                id="ciudad"
-                name="ciudad"
+                id="city"
+                name="city"
                 className="contact__input"
-                placeholder="Tu ciudad"
-                value={formData.ciudad}
+                placeholder={dict.contact.form.cityPlaceholder}
+                value={formData.city}
                 onChange={handleChange}
               />
             </div>
 
-            {/* Mensaje - Full width */}
+            {/* Message - Full width */}
             <div className="contact__field contact__field--full">
-              <label className="contact__label-field" htmlFor="mensaje">
-                Mensaje
+              <label className="contact__label-field" htmlFor="message">
+                {dict.contact.form.message}
               </label>
               <textarea
-                id="mensaje"
-                name="mensaje"
+                id="message"
+                name="message"
                 className="contact__textarea"
-                placeholder="Cuéntanos sobre la aventura que tienes en mente..."
+                placeholder={dict.contact.form.messagePlaceholder}
                 rows={5}
-                value={formData.mensaje}
+                value={formData.message}
                 onChange={handleChange}
                 required
               />
@@ -181,7 +186,7 @@ export default function Contact() {
 
           {/* Submit button */}
           <button type="submit" className="contact__submit">
-            <span className="contact__submit-text">Enviar mensaje</span>
+            <span className="contact__submit-text">{dict.contact.form.submit}</span>
             <svg className="contact__submit-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

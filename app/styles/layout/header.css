@@ -116,8 +116,77 @@
   gap: var(--spacing-md);
 }
 
-.header__social {
+/* ==========================================================================
+   Language Selector
+   ========================================================================== */
+
+.header__lang {
   display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header__lang-btn {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.header__lang-btn:hover {
+  color: #D4B59E;
+}
+
+.header__lang-btn--active {
+  color: #D4B59E;
+  background-color: rgba(212, 181, 158, 0.15);
+}
+
+.header__lang-separator {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+}
+
+.header__menu-lang {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header__menu-lang span {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.header__menu-lang-btn {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.header__menu-lang-btn:hover {
+  color: #D4B59E;
+}
+
+.header__menu-lang-btn--active {
+  color: #D4B59E;
+  background-color: rgba(212, 181, 158, 0.15);
+}
+
+.header__social {
+  display: none; /* Hidden - using fixed social bar instead */
   align-items: center;
   gap: var(--spacing-xs);
 }
@@ -424,10 +493,56 @@
 }
 
 /* ==========================================================================
+   Mobile Right Section - Hidden by default, shown on mobile
+   ========================================================================== */
+
+.header__mobile-right {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__mobile-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.header__mobile-social-link:hover {
+  color: #D4B59E;
+  border-color: #D4B59E;
+}
+
+.header__mobile-social-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Mobile Language Selector */
+.header__mobile-lang {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 4px;
+  padding-left: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
    Mobile (768px and below)
    ========================================================================== */
 
 @media (max-width: 768px) {
+  .header__container {
+    justify-content: space-between;
+  }
+
   .header__logo img {
     height: 55px;
   }
@@ -448,6 +563,38 @@
   .header__menu-overlay {
     display: none;
   }
+
+  /* Show mobile right section */
+  .header__mobile-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.header__mobile-lang-btn {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.header__mobile-lang-btn:hover {
+  color: #D4B59E;
+}
+
+.header__mobile-lang-btn--active {
+  color: #D4B59E;
+  background-color: rgba(212, 181, 158, 0.15);
+}
+
+.header__mobile-lang-sep {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 11px;
 }
 
 /* ==========================================================================
@@ -458,6 +605,30 @@
   .header__logo img {
     height: 45px;
   }
+
+  .header__mobile-right {
+    gap: 6px;
+  }
+
+  .header__mobile-social-link {
+    width: 28px;
+    height: 28px;
+  }
+
+  .header__mobile-social-link svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .header__mobile-lang {
+    padding-left: 6px;
+    margin-left: 2px;
+  }
+
+  .header__mobile-lang-btn {
+    font-size: 10px;
+    padding: 3px 5px;
+  }
 }
 
 /* ==========================================================================
@@ -467,5 +638,28 @@
 @media (max-width: 360px) {
   .header__logo img {
     height: 40px;
+  }
+
+  .header__mobile-right {
+    gap: 4px;
+  }
+
+  .header__mobile-social-link {
+    width: 26px;
+    height: 26px;
+  }
+
+  .header__mobile-social-link svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .header__mobile-lang-btn {
+    font-size: 9px;
+    padding: 2px 4px;
+  }
+
+  .header__mobile-lang-sep {
+    font-size: 9px;
   }
 }

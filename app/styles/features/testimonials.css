@@ -164,11 +164,11 @@
 }
 
 .testimonials__float-btn--prev {
-  left: -28px;
+  left: -35px;
 }
 
 .testimonials__float-btn--next {
-  right: -28px;
+  right: -35px;
 }
 
 .testimonials__quote-icon {
@@ -551,11 +551,11 @@
   }
 
   .testimonials__float-btn--prev {
-    left: 4px;
+    left: -20px;
   }
 
   .testimonials__float-btn--next {
-    right: 4px;
+    right: -20px;
   }
 }
 

@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "title": "Vintage Rides Andes | Tours de Motocicleta en Perú | Descubre el Sur en 2 Ruedas",
+    "description": "Tours de motocicleta exclusivos en el sur de Perú. Explora Machu Picchu, Lago Titicaca, Cañón del Colca y los Andes. 15 años de experiencia. Tours desde 5 hasta 13 días."
+  },
+  "nav": {
+    "home": "Inicio",
+    "tours": "Expediciones",
+    "about": "Nosotros",
+    "gallery": "Galería",
+    "contact": "Contacto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "hero": {
+    "title": "Vive el Perú",
+    "subtitle1": "que solo has",
+    "subtitle2": "visto en tus",
+    "subtitle3": "sueños",
+    "cta": "Ver Expediciones",
+    "scroll": "Explorar"
+  },
+  "tours": {
+    "label": "Expediciones",
+    "recommended": "Recomendado",
+    "duration": "Duración",
+    "distance": "Recorrido",
+    "bookTour": "Reserva tu tour",
+    "contactUs": "Contáctanos",
+    "viewPdf": "Ver PDF",
+    "downloadPdf": "Descargar PDF con información de",
+    "previousTour": "Tour anterior",
+    "nextTour": "Siguiente tour",
+    "swipeHint": "Desliza para ver más",
+    "imageCarousel": "carrusel de imágenes",
+    "tourCarousel": "carrusel de tours",
+    "image": "Imagen",
+    "items": {
+      "emblematico": {
+        "title": "TOUR EMBLEMÁTICO",
+        "subtitle": "11 días, 2,000 kms",
+        "duration": "11 días",
+        "distance": "2,000 kms",
+        "description": "Diseñado por nuestro socio VINTAGE RIDES de Francia, los riders tienen una inmersión increíble en las culturas españolas (Arequipa) e incas (Cuzco, Machu Picchu), cruzando paisajes fuera de los senderos trillados, de la cadena occidental de los volcanes, del altiplano con el lago Titicaca y de la selva amazónica. ¿Te imaginas pasar de 4,725 m, al pie de los glaciares, a 600 m en plena selva, en menos de 2 horas? ¡Solo en el Perú!",
+        "highlights": ["Volcán Misti", "Lago Titicaca", "Selva Amazónica", "Machu Picchu", "Altiplano Andino"]
+      },
+      "alacarte": {
+        "title": "TOURS A LA CARTE",
+        "subtitle": "Tu aventura personalizada",
+        "duration": "1 a ∞ días",
+        "distance": "A medida",
+        "description": "Arequipa es el lugar ideal para empezar a explorar los Andes. En pocas horas, el rider pasa de la costa del Pacífico, al desierto de Atacama, el altiplano andino, los salares bolivianos y la selva amazónica. Vintage Rides Andes customiza tours desde 1 día hasta que el tiempo se agote, para solo rider y grupos de hasta 10 amigos.",
+        "highlights": ["Costa del Pacífico", "Desierto de Atacama", "Altiplano Andino", "Salares Bolivianos", "Selva Amazónica"]
+      },
+      "canones": {
+        "title": "CAÑONES Y VOLCANES",
+        "subtitle": "Arequipa Extrema",
+        "duration": "6 días",
+        "distance": "1,000 kms",
+        "description": "Atraviesa los cañones más profundos de América y rodea volcanes imponentes. Una aventura extrema en el corazón de los Andes del sur.",
+        "highlights": ["Cañón del Colca", "Volcanes nevados", "Aventura de altura extrema"]
+      },
+      "desierto": {
+        "title": "DESIERTO Y PLAYAS",
+        "subtitle": "Costa Peruana",
+        "duration": "5 días",
+        "distance": "1,050 kms",
+        "description": "Explora el contraste entre el desierto costero y las playas del Pacífico. Una ruta que combina arena, sol y la magia de la costa peruana.",
+        "highlights": ["Desiertos costeros únicos", "Playas del Pacífico", "Gastronomía marina excepcional"]
+      }
+    }
+  },
+  "about": {
+    "title": "Lo que nos hace diferentes",
+    "description": "Por más de 15 años, hemos compartido la pasión por los viajes en motocicleta. Conocemos cada ruta, cada mirador, cada secreto que el sur del Perú esconde.",
+    "footer": "Solo Vintage Rides Andes",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "slides": {
+      "1": {
+        "title": "Estamos en",
+        "highlight": "15 países",
+        "subtitle": "",
+        "content": "Somos parte de la familia VINTAGE RIDES, la famosa agencia de viajes en moto. Con sede en Lyon, Francia, nació hace 20 años en India y hoy ofrece más de 100 tours en 15 países alrededor del mundo."
+      },
+      "2": {
+        "title": "La aventura",
+        "highlight": "comenzó",
+        "subtitle": "hace 48 años",
+        "content": "Durante los últimos 48 años, Jean-Louis Gelot, francés, ingeniero mecánico y geofísico, recorrió el mundo buscando minerales e hidrocarburos. En 2016 se instaló en Arequipa, Perú. En 2020 creó VINTAGE RIDES ANDES."
+      },
+      "3": {
+        "title": "Más de",
+        "highlight": "500 riders",
+        "subtitle": "exploraron los Andes",
+        "content": "Desde 2021, asegurados de encontrar guías confirmados, soporte logístico y mecánicos listos, vinieron riders de Francia, Suiza, Alemania, UK, USA, Bélgica, Australia, Ucrania y muchos más países."
+      },
+      "4": {
+        "title": "Los secretos de la",
+        "highlight": "Cordillera",
+        "subtitle": "de los Andes",
+        "content": "Con 8,500 kms desde el Caribe hasta la Tierra del Fuego, la Cordillera de los Andes es la más larga del mundo. Un refugio para más de 100 ecosistemas naturales."
+      },
+      "5": {
+        "title": "Un viaje de",
+        "highlight": "5,000 años",
+        "subtitle": "de historia",
+        "content": "Los humanos desarrollaron grandes culturas como Caral hace 5,000 años, Inca hace 500 años. La conquista española y migraciones crearon esa cultura tan diversa de hoy."
+      }
+    }
+  },
+  "testimonials": {
+    "label": "Testimonios",
+    "title": "Lo que dicen nuestros riders"
+  },
+  "gallery": {
+    "label": "Galería",
+    "title": "Momentos que quedan para siempre",
+    "close": "Cerrar",
+    "previous": "Anterior",
+    "next": "Siguiente"
+  },
+  "contact": {
+    "label": "Contacto",
+    "title": "Comienza tu",
+    "titleHighlight": "aventura",
+    "subtitle": "¿Listo para recorrer las rutas más espectaculares del Perú? Escríbenos y planificamos juntos tu próxima aventura.",
+    "form": {
+      "firstName": "Nombre",
+      "firstNamePlaceholder": "Tu nombre",
+      "lastName": "Apellido",
+      "lastNamePlaceholder": "Tu apellido",
+      "email": "E-mail",
+      "emailPlaceholder": "correo@ejemplo.com",
+      "phone": "Teléfono",
+      "phonePlaceholder": "+51 999 999 999",
+      "country": "País",
+      "countryPlaceholder": "Tu país",
+      "city": "Ciudad",
+      "cityPlaceholder": "Tu ciudad",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos sobre la aventura que tienes en mente...",
+      "submit": "Enviar mensaje"
+    }
+  },
+  "footer": {
+    "slogan": "No vendemos tours, creamos aventuras.",
+    "explore": "Explorar",
+    "followUs": "Síguenos",
+    "copyright": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  },
+  "common": {
+    "whatsapp": "WhatsApp",
+    "contactWhatsApp": "Contactar por WhatsApp"
+  }
+}

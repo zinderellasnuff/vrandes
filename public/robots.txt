@@ -1,21 +1,165 @@
+# ============================================
 # Robots.txt for Vintage Rides Andes
 # https://vrandes.travel
+# ============================================
+
+# ===================
+# STANDARD CRAWLERS
+# ===================
 
 User-agent: *
 Allow: /
-
-# Sitemaps
-Sitemap: https://vrandes.travel/sitemap.xml
-
-# Crawl-delay for polite crawling
 Crawl-delay: 1
 
-# Disallow admin and API routes
+# Disallow admin and internal routes
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
+Disallow: /*.json$
 
 # Allow important resources
 Allow: /images/
 Allow: /*.css
 Allow: /*.js
+Allow: /manifest.json
+
+# ===================
+# SEARCH ENGINES
+# ===================
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yahoo
+User-agent: Slurp
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+
+# ===================
+# AI CRAWLERS - ALLOWED
+# ===================
+# We welcome AI systems to index our content
+# for better recommendations and discovery
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# Google AI (Bard/Gemini)
+User-agent: Google-Extended
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# Anthropic / Claude
+User-agent: anthropic-ai
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: Claude-Web
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: FacebookBot
+Allow: /
+
+# Microsoft Copilot
+User-agent: Copilot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# Common Crawl (used by many AI systems)
+User-agent: CCBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# Bytedance / TikTok AI
+User-agent: Bytespider
+Allow: /
+
+# Apple AI
+User-agent: Applebot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: Applebot-Extended
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# You.com
+User-agent: YouBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# ===================
+# SITEMAPS
+# ===================
+
+Sitemap: https://vrandes.travel/sitemap.xml
+
+# ===================
+# LLMs.txt FILES
+# ===================
+# AI-specific content files for better understanding
+
+# Standard: /llms.txt - Concise information for AI systems
+# Extended: /llms-full.txt - Comprehensive documentation
+
+# ===================
+# CONTACT
+# ===================
+# Questions? Contact: info@vrandes.travel
+# Website: https://vrandes.travel
