@@ -3,56 +3,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import type { Locale } from '@/lib/i18n/config';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
-
-interface Tour {
-  id: string;
-  key: 'emblematico' | 'alacarte' | 'canones' | 'desierto';
-  images: string[];
-  isEmblematic?: boolean;
-  bookingUrl?: string;
-}
-
-const toursData: Tour[] = [
-  {
-    id: 'tour-emblematico',
-    key: 'emblematico',
-    images: [
-      '/images/tours/altiplano-1.jpg',
-      '/images/tours/canones-1.jpg',
-      '/images/tours/ushuaia-1.jpg',
-      '/images/tours/altiplano-2.jpg'
-    ],
-    isEmblematic: true,
-    bookingUrl: 'https://www.vintagerides.com/us/tour-departure-schedule/?dest=2685'
-  },
-  {
-    id: 'a-la-carte',
-    key: 'alacarte',
-    images: [
-      '/images/tours/canones-2.jpg',
-      '/images/tours/desierto-1.jpg',
-      '/images/tours/canones-3.jpg'
-    ]
-  },
-  {
-    id: 'canones-volcanes',
-    key: 'canones',
-    images: [
-      '/images/tours/canones-1.jpg',
-      '/images/tours/canones-2.jpg',
-      '/images/tours/canones-3.jpg'
-    ]
-  },
-  {
-    id: 'desierto-playas',
-    key: 'desierto',
-    images: [
-      '/images/tours/desierto-1.jpg',
-      '/images/tours/desierto-2.jpg',
-      '/images/tours/desierto-3.jpg'
-    ]
-  }
-];
+import { tours } from '@/app/data';
 
 interface TourShowcaseProps {
   lang: Locale;
@@ -67,7 +18,7 @@ export default function TourShowcase({ dict }: TourShowcaseProps) {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  const activeTour = toursData[activeIndex];
+  const activeTour = tours[activeIndex];
   const tourContent = dict.tours.items[activeTour.key];
 
   const nextImage = useCallback(() => {
@@ -80,16 +31,14 @@ export default function TourShowcase({ dict }: TourShowcaseProps) {
     return () => clearInterval(interval);
   }, [isPaused, nextImage]);
 
-  useEffect(() => {
-    setImageIndex(0);
-  }, [activeIndex]);
-
   const nextTour = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % toursData.length);
+    setActiveIndex((prev) => (prev + 1) % tours.length);
+    setImageIndex(0);
   }, []);
 
   const prevTour = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + toursData.length) % toursData.length);
+    setActiveIndex((prev) => (prev - 1 + tours.length) % tours.length);
+    setImageIndex(0);
   }, []);
 
   const handleTouchStart = (e: React.TouchEvent) => {

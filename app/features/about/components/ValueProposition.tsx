@@ -3,19 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import type { Locale } from '@/lib/i18n/config';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
-
-interface Slide {
-  id: number;
-  image: string;
-}
-
-const slidesData: Slide[] = [
-  { id: 1, image: '/images/about/world-map.jpeg' },
-  { id: 2, image: '/images/about/founder.jpg' },
-  { id: 3, image: '/images/about/riders-group.jpg' },
-  { id: 4, image: '/images/about/andes-map.jpg' },
-  { id: 5, image: '/images/about/machu-picchu.jpg' }
-];
+import { aboutSlides } from '@/app/data';
 
 interface ValuePropositionProps {
   lang: Locale;
@@ -27,11 +15,11 @@ export default function ValueProposition({ dict }: ValuePropositionProps) {
   const [isPaused, setIsPaused] = useState(false);
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slidesData.length);
+    setCurrentSlide((prev) => (prev + 1) % aboutSlides.length);
   }, []);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + slidesData.length) % slidesData.length);
+    setCurrentSlide((prev) => (prev - 1 + aboutSlides.length) % aboutSlides.length);
   }, []);
 
   const goToSlide = (index: number) => {
@@ -44,7 +32,7 @@ export default function ValueProposition({ dict }: ValuePropositionProps) {
     return () => clearInterval(interval);
   }, [isPaused, nextSlide]);
 
-  const activeSlide = slidesData[currentSlide];
+  const activeSlide = aboutSlides[currentSlide];
   const slideContent = dict.about.slides[String(activeSlide.id)];
 
   return (
@@ -90,7 +78,7 @@ export default function ValueProposition({ dict }: ValuePropositionProps) {
 
           {/* Dots indicator */}
           <div className="value-proposition__dots">
-            {slidesData.map((_, index) => (
+            {aboutSlides.map((_, index) => (
               <button
                 key={index}
                 className={`value-proposition__dot ${index === currentSlide ? 'value-proposition__dot--active' : ''}`}
@@ -99,12 +87,34 @@ export default function ValueProposition({ dict }: ValuePropositionProps) {
               />
             ))}
           </div>
+
+          {/* Mobile navigation buttons */}
+          <div className="value-proposition__mobile-nav">
+            <button
+              className="value-proposition__edge-btn"
+              onClick={prevSlide}
+              aria-label={dict.about.previous}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button
+              className="value-proposition__edge-btn"
+              onClick={nextSlide}
+              aria-label={dict.about.next}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Right Side - Image Carousel */}
         <div className="value-proposition__right reveal reveal--right">
           <div className="value-proposition__image">
-            {slidesData.map((slide, index) => (
+            {aboutSlides.map((slide, index) => (
               <div
                 key={slide.id}
                 className={`value-proposition__image-slide ${index === currentSlide ? 'value-proposition__image-slide--active' : ''}`}

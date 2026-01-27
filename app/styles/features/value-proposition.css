@@ -143,6 +143,11 @@
   gap: 8px;
 }
 
+/* Mobile navigation container - hidden by default */
+.value-proposition__mobile-nav {
+  display: none;
+}
+
 .value-proposition__dot {
   width: 30px;
   height: 3px;
@@ -444,9 +449,34 @@
     min-height: 350px;
   }
 
-  /* Hide edge buttons on mobile */
-  .value-proposition__edge-btn {
+  /* Hide edge buttons that are direct children of split (outside) */
+  .value-proposition__split > .value-proposition__edge-btn {
     display: none;
+  }
+
+  /* Mobile navigation - show buttons inside the left section */
+  .value-proposition__mobile-nav {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-md);
+  }
+
+  .value-proposition__mobile-nav .value-proposition__edge-btn {
+    display: flex;
+    position: static;
+    transform: none;
+    width: 48px;
+    height: 48px;
+    background: var(--color-accent);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 15px rgba(212, 181, 158, 0.3);
+  }
+
+  .value-proposition__mobile-nav .value-proposition__edge-btn:hover {
+    background: #c9a285;
+    transform: scale(1.05);
   }
 
   .value-proposition__footer {

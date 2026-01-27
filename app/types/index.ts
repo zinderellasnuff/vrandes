@@ -1,3 +1,21 @@
+/**
+ * Types Index
+ *
+ * Tipos TypeScript globales de la aplicación.
+ * Los tipos específicos de datos están en /app/data/
+ */
+
+// Re-exportar tipos de datos
+export type { Tour, TourKey } from '@/app/data/tours';
+export type { Testimonial } from '@/app/data/testimonials';
+export type { Photo, PhotoSize } from '@/app/data/gallery';
+export type { AboutSlide } from '@/app/data/about';
+export type { NavSectionId } from '@/app/data/navigation';
+
+// ============================================================================
+// Component Props
+// ============================================================================
+
 export interface ButtonProps {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'outline';
@@ -6,33 +24,17 @@ export interface ButtonProps {
   className?: string;
 }
 
-export interface HeaderProps {
-  transparent?: boolean;
-}
-
 export interface HeroProps {
   videoSrc: string;
   title: string;
   description: string;
 }
 
-export interface Tour {
-  id: string;
-  title: string;
-  subtitle: string;
-  duration: string;
-  distance: string;
-  images: string[];
-  description: string;
-  highlights: string[];
-  color: string;
-}
+// ============================================================================
+// Testimonials (formato para componentes)
+// ============================================================================
 
-export interface TourShowcaseProps {
-  tours: Tour[];
-}
-
-export interface Testimonial {
+export interface TestimonialDisplay {
   id: string;
   name: string;
   location: string;
@@ -43,10 +45,14 @@ export interface Testimonial {
 }
 
 export interface TestimonialsProps {
-  testimonials: Testimonial[];
+  testimonials: TestimonialDisplay[];
 }
 
-export interface Photo {
+// ============================================================================
+// Gallery (formato para componentes)
+// ============================================================================
+
+export interface PhotoDisplay {
   id: string;
   src: string;
   alt: string;
@@ -55,5 +61,5 @@ export interface Photo {
 }
 
 export interface PhotoGalleryProps {
-  photos: Photo[];
+  photos: PhotoDisplay[];
 }
