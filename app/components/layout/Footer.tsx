@@ -54,14 +54,6 @@ const socialLinks = [
 export default function Footer({ lang, dict }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
-  const navLinks = [
-    { id: 'hero', name: dict.nav.home },
-    { id: 'tours', name: dict.nav.tours },
-    { id: 'about', name: dict.nav.about },
-    { id: 'gallery', name: dict.nav.gallery },
-    { id: 'contact', name: dict.nav.contact }
-  ];
-
   return (
     <footer className="footer">
       <div className="footer__container container">
@@ -78,22 +70,6 @@ export default function Footer({ lang, dict }: FooterProps) {
             </p>
           </div>
 
-          {/* Navigation */}
-          <nav className="footer__nav">
-            <span className="footer__nav-title">{dict.footer.explore}</span>
-            <div className="footer__nav-icons">
-              {navLinks.map((link) => (
-                <a
-                  key={link.id}
-                  href={`#${link.id}`}
-                  className="footer__nav-icon-link"
-                  title={link.name}
-                >
-                  <span className="footer__nav-label">{link.name}</span>
-                </a>
-              ))}
-            </div>
-          </nav>
 
           {/* Social */}
           <div className="footer__social">

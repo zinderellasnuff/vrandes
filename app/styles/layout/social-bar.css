@@ -137,11 +137,29 @@
 }
 
 /* ==========================================================================
-   Mobile (768px and below) - Hidden, using BottomNav instead
+   Mobile (768px and below) - Compact social bar
    ========================================================================== */
 
 @media (max-width: 768px) {
   .social-bar {
+    bottom: var(--spacing-md);
+  }
+
+  .social-bar__content {
+    padding: 8px 14px;
+    gap: 4px;
+  }
+
+  .social-bar__label {
     display: none;
+  }
+
+  .social-bar__link {
+    padding: 8px;
+  }
+
+  .social-bar__link svg {
+    width: 16px;
+    height: 16px;
   }
 }

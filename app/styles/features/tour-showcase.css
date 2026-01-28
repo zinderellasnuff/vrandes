@@ -350,16 +350,21 @@
   cursor: pointer;
 }
 
-/* Floating Navigation Buttons - Inside Image */
-.tours__float-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  width: 56px;
-  height: 56px;
-  background: var(--color-accent);
-  border: none;
+/* Tour Section Navigation - Prev/Dots/Next bar */
+.tours__tour-nav {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg) 0 0;
+}
+
+.tours__tour-nav-btn {
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   color: white;
   cursor: pointer;
@@ -367,21 +372,42 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(230, 126, 34, 0.4);
 }
 
-.tours__float-btn:hover {
-  background: var(--color-secondary);
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 25px rgba(44, 62, 80, 0.5);
+.tours__tour-nav-btn:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: scale(1.1);
 }
 
-.tours__float-btn--prev {
-  left: 20px;
+.tours__tour-dots {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.tours__float-btn--next {
-  right: 20px;
+.tours__tour-dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.tours__tour-dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.tours__tour-dot--active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  width: 14px;
+  height: 14px;
+  box-shadow: 0 0 12px rgba(230, 126, 34, 0.5);
 }
 
 .tours__carousel-slide {
@@ -638,19 +664,6 @@
     margin-right: auto;
   }
 
-  .tours__float-btn {
-    width: 52px;
-    height: 52px;
-  }
-
-  .tours__float-btn--prev {
-    left: 16px;
-  }
-
-  .tours__float-btn--next {
-    right: 16px;
-  }
-
   .tours__image-wrapper {
     order: 1;
     height: 60vh;
@@ -760,9 +773,13 @@
     align-items: center;
   }
 
-  /* Hide floating buttons on mobile - using swipe */
-  .tours__float-btn {
-    display: none;
+  .tours__tour-nav {
+    gap: var(--spacing-md);
+  }
+
+  .tours__tour-nav-btn {
+    width: 44px;
+    height: 44px;
   }
 
   .tours__image-wrapper {
@@ -797,9 +814,7 @@
   }
 
   .tours__swipe-hint {
-    display: flex;
-    order: 0;
-    margin-top: 0;
+    display: none;
   }
 }
 

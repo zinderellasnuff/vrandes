@@ -5,6 +5,25 @@ import type { Locale } from '@/lib/i18n/config';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
 import { tours } from '@/app/data';
 
+function renderFormattedText(text: string) {
+  const lines = text.split('\n');
+  return lines.map((line, lineIndex) => {
+    const parts = line.split(/(\*\*.*?\*\*)/g);
+    const rendered = parts.map((part, partIndex) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={partIndex}>{part.slice(2, -2)}</strong>;
+      }
+      return part;
+    });
+    return (
+      <span key={lineIndex}>
+        {lineIndex > 0 && <br />}
+        {rendered}
+      </span>
+    );
+  });
+}
+
 interface TourShowcaseProps {
   lang: Locale;
   dict: Dictionary;
@@ -110,7 +129,7 @@ export default function TourShowcase({ dict }: TourShowcaseProps) {
             </div>
           </div>
 
-          <p className="tours__description">{tourContent.description}</p>
+          <p className="tours__description">{renderFormattedText(tourContent.description)}</p>
 
           {/* Highlights */}
           <div className="tours__highlights">
@@ -190,26 +209,6 @@ export default function TourShowcase({ dict }: TourShowcaseProps) {
               </div>
             ))}
 
-            {/* Floating Navigation Buttons - Inside Image */}
-            <button
-              className="tours__float-btn tours__float-btn--prev"
-              onClick={prevTour}
-              aria-label={dict.tours.previousTour}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            <button
-              className="tours__float-btn tours__float-btn--next"
-              onClick={nextTour}
-              aria-label={dict.tours.nextTour}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-
             {/* Image indicators */}
             <div className="tours__carousel-indicators">
               {activeTour.images.map((_, index) => (
@@ -224,6 +223,40 @@ export default function TourShowcase({ dict }: TourShowcaseProps) {
           </div>
 
           <div className="tours__image-frame"></div>
+        </div>
+
+        {/* Tour Navigation - Below content */}
+        <div className="tours__tour-nav">
+          <button
+            className="tours__tour-nav-btn"
+            onClick={prevTour}
+            aria-label={dict.tours.previousTour}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+
+          <div className="tours__tour-dots">
+            {tours.map((_, index) => (
+              <button
+                key={index}
+                className={`tours__tour-dot ${index === activeIndex ? 'tours__tour-dot--active' : ''}`}
+                onClick={() => { setActiveIndex(index); setImageIndex(0); }}
+                aria-label={`${dict.tours.items[tours[index].key].title}`}
+              />
+            ))}
+          </div>
+
+          <button
+            className="tours__tour-nav-btn"
+            onClick={nextTour}
+            aria-label={dict.tours.nextTour}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </div>
 
       </div>

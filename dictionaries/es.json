@@ -52,21 +52,21 @@
         "description": "Arequipa es el lugar ideal para empezar a explorar los Andes. En pocas horas, el rider pasa de la costa del Pacífico, al desierto de Atacama, el altiplano andino, los salares bolivianos y la selva amazónica. Vintage Rides Andes customiza tours desde 1 día hasta que el tiempo se agote, para solo rider y grupos de hasta 10 amigos.",
         "highlights": ["Costa del Pacífico", "Desierto de Atacama", "Altiplano Andino", "Salares Bolivianos", "Selva Amazónica"]
       },
-      "canones": {
-        "title": "CAÑONES Y VOLCANES",
-        "subtitle": "Arequipa Extrema",
-        "duration": "6 días",
-        "distance": "1,000 kms",
-        "description": "Atraviesa los cañones más profundos de América y rodea volcanes imponentes. Una aventura extrema en el corazón de los Andes del sur.",
-        "highlights": ["Cañón del Colca", "Volcanes nevados", "Aventura de altura extrema"]
+      "raids": {
+        "title": "EL VIAJE DE UNA VIDA – RAIDS EN AMÉRICA DEL SUR",
+        "subtitle": "10,000 km, más de un mes",
+        "duration": "+30 días",
+        "distance": "10,000 kms",
+        "description": "Recorrer 10.000 km, viajar más de un mes, no es solo una aventura en moto.\nEs aceptar un **desafío físico y mental** que te lleva mucho más lejos de lo que jamás imaginaste. En un raid así, **nadie vuelve siendo el mismo**.\nLa Cordillera de los Andes, con su fuerza bruta, sus ecosistemas extremos y su historia milenaria, atraviesa seis países en paz, desde las costas del Caribe hasta los confines de la Patagonia. No es exagerado decirlo: es **uno de los mejores territorios del mundo para un gran raid en moto**.\nPero lo que hace posible lo imposible es **el espíritu del grupo**. La solidaridad en la dificultad. Las risas al final del día. El empuje colectivo cuando el cansancio aparece.\nEn un raid, hay un **antes… y un después**.\nEn enero de 2025, Vintage Rides Andes organizó su primer raid Arequipa – Ushuaia.\n**Las grandes historias no terminan.**\nPróxima salida: **enero 2027**.\n¿Estás listo para vivir el viaje de tu vida?",
+        "highlights": ["Arequipa – Ushuaia", "Cordillera de los Andes", "6 países", "Enero 2027"]
       },
-      "desierto": {
-        "title": "DESIERTO Y PLAYAS",
-        "subtitle": "Costa Peruana",
-        "duration": "5 días",
-        "distance": "1,050 kms",
-        "description": "Explora el contraste entre el desierto costero y las playas del Pacífico. Una ruta que combina arena, sol y la magia de la costa peruana.",
-        "highlights": ["Desiertos costeros únicos", "Playas del Pacífico", "Gastronomía marina excepcional"]
+      "alquiler": {
+        "title": "¿PREFIERES VIAJAR SOLO? ALQUILA UNA MOTO",
+        "subtitle": "Royal Enfield Himalayan 450",
+        "duration": "Flexible",
+        "distance": "A medida",
+        "description": "Si buscas la libertad total sobre dos ruedas, alquila una de nuestras Royal Enfield Himalayan 450.\nViaja a tu propio ritmo, elige tus desvíos y descubre caminos auténticos, lejos de los circuitos turísticos.\nNosotros te acompañamos en diseñar rutas auténticas, reservar hoteles (salvo que elijas dormir bajo las estrellas 😉).\n**Tú pones el espíritu aventurero.**\n**Nosotros ponemos la moto y el conocimiento del terreno.**",
+        "highlights": ["Royal Enfield Himalayan 450", "Rutas auténticas", "Libertad total", "Soporte logístico"]
       }
     }
   },

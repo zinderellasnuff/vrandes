@@ -52,21 +52,21 @@
         "description": "Arequipa is the ideal starting point to explore the Andes. Within hours, riders travel from the Pacific coast to the Atacama desert, the Andean altiplano, Bolivian salt flats, and the Amazon rainforest. Vintage Rides Andes customizes tours from 1 day to as long as time allows, for solo riders and groups up to 10 friends.",
         "highlights": ["Pacific Coast", "Atacama Desert", "Andean Altiplano", "Bolivian Salt Flats", "Amazon Rainforest"]
       },
-      "canones": {
-        "title": "CANYONS & VOLCANOES",
-        "subtitle": "Extreme Arequipa",
-        "duration": "6 days",
-        "distance": "1,000 km",
-        "description": "Cross the deepest canyons in the Americas and ride around imposing volcanoes. An extreme adventure in the heart of the southern Andes.",
-        "highlights": ["Colca Canyon", "Snow-capped Volcanoes", "Extreme High-Altitude Adventure"]
+      "raids": {
+        "title": "THE JOURNEY OF A LIFETIME – RAIDS IN SOUTH AMERICA",
+        "subtitle": "10,000 km, more than a month",
+        "duration": "+30 days",
+        "distance": "10,000 km",
+        "description": "Riding 10,000 km, traveling for more than a month, is not just a motorcycle adventure.\nIt is embracing a **physical and mental challenge** that takes you far beyond what you ever imagined. On a raid like this, **no one comes back the same**.\nThe Andes Cordillera, with its raw power, extreme ecosystems, and millennia-old history, stretches across six peaceful countries, from the Caribbean coast to the far reaches of Patagonia.\nIt's no exaggeration to say it: this is **one of the greatest territories in the world for a true motorcycle raid**.\nBut what makes the impossible possible is **the spirit of the group**.\nSolidarity in hardship. Laughter at the end of the day. The collective push when fatigue sets in.\nOn a raid, there is a **before… and an after**.\nIn January 2025, Vintage Rides Andes organized its first Arequipa – Ushuaia raid.\n**Great stories never end.**\nNext departure: **January 2027**.\nAre you ready to live the journey of a lifetime?",
+        "highlights": ["Arequipa – Ushuaia", "Andes Cordillera", "6 Countries", "January 2027"]
       },
-      "desierto": {
-        "title": "DESERT & BEACHES",
-        "subtitle": "Peruvian Coast",
-        "duration": "5 days",
-        "distance": "1,050 km",
-        "description": "Explore the contrast between coastal desert and Pacific beaches. A route that combines sand, sun, and the magic of the Peruvian coast.",
-        "highlights": ["Unique Coastal Deserts", "Pacific Beaches", "Exceptional Seafood Cuisine"]
+      "alquiler": {
+        "title": "PREFER TO RIDE SOLO? RENT A MOTORCYCLE",
+        "subtitle": "Royal Enfield Himalayan 450",
+        "duration": "Flexible",
+        "distance": "Customized",
+        "description": "If you're looking for total freedom on two wheels, rent one of our Royal Enfield Himalayan 450 motorcycles.\nRide at your own pace, choose your own detours, and discover authentic routes far from the tourist crowds.\nWe help you design genuine routes and book hand-picked hotels—unless you decide to sleep under the stars 😉.\n**You bring the adventurous spirit.**\n**We provide the bike and the local know-how.**",
+        "highlights": ["Royal Enfield Himalayan 450", "Authentic Routes", "Total Freedom", "Logistic Support"]
       }
     }
   },

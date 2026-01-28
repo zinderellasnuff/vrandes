@@ -416,6 +416,7 @@
   .value-proposition__split {
     grid-template-columns: 1fr;
     min-height: auto;
+    margin: 0;
   }
 
   .value-proposition__left {
@@ -454,12 +455,12 @@
     display: none;
   }
 
-  /* Mobile navigation - show buttons inside the left section */
+  /* Mobile navigation - spread buttons to edges */
   .value-proposition__mobile-nav {
     display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
+    justify-content: space-between;
     margin-top: var(--spacing-md);
+    width: 100%;
   }
 
   .value-proposition__mobile-nav .value-proposition__edge-btn {

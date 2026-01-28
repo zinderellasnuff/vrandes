@@ -41,8 +41,8 @@ export interface Dictionary {
     items: {
       emblematico: TourItem;
       alacarte: TourItem;
-      canones: TourItem;
-      desierto: TourItem;
+      raids: TourItem;
+      alquiler: TourItem;
     };
   };
   about: {

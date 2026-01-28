@@ -8,7 +8,7 @@
  *    bajo tours.items.[key]
  */
 
-export type TourKey = 'emblematico' | 'alacarte' | 'canones' | 'desierto';
+export type TourKey = 'emblematico' | 'alacarte' | 'raids' | 'alquiler';
 
 export interface Tour {
   id: string;
@@ -23,10 +23,13 @@ export const tours: Tour[] = [
     id: 'tour-emblematico',
     key: 'emblematico',
     images: [
-      '/images/tours/altiplano-1.jpg',
-      '/images/tours/canones-1.jpg',
-      '/images/tours/ushuaia-1.jpg',
-      '/images/tours/altiplano-2.jpg',
+      '/images/tours/emblematico/rider-altiplano-volcanes.jpg',
+      '/images/tours/emblematico/grupo-machu-picchu.jpg',
+      '/images/tours/emblematico/islas-flotantes-titicaca.jpg',
+      '/images/tours/emblematico/riders-laguna-singrenacocha.jpg',
+      '/images/tours/emblematico/mapa.webp',
+      '/images/tours/emblematico/rider-cruce-rio.jpg',
+      '/images/tours/emblematico/rider-puente-colgante-selva.jpg',
     ],
     isEmblematic: true,
     bookingUrl: 'https://www.vintagerides.com/us/tour-departure-schedule/?dest=2685',
@@ -35,27 +38,33 @@ export const tours: Tour[] = [
     id: 'a-la-carte',
     key: 'alacarte',
     images: [
-      '/images/tours/canones-2.jpg',
-      '/images/tours/desierto-1.jpg',
-      '/images/tours/canones-3.jpg',
+      '/images/tours/emblematico/rider-altiplano-volcanes.jpg',
+      '/images/tours/emblematico/rider-puente-colgante-selva.jpg',
+      '/images/tours/emblematico/rider-cruce-rio.jpg',
     ],
   },
   {
-    id: 'canones-volcanes',
-    key: 'canones',
+    id: 'raids',
+    key: 'raids',
     images: [
-      '/images/tours/canones-1.jpg',
-      '/images/tours/canones-2.jpg',
-      '/images/tours/canones-3.jpg',
+      '/images/tours/raids/riders-ruta-fitz-roy.jpg',
+      '/images/tours/raids/grupo-llegada-ushuaia.jpg',
+      '/images/tours/raids/rider-ruta-recta-patagonia.jpg',
+      '/images/tours/raids/motos-embarcadero-lago-titicaca.jpg',
+      '/images/tours/raids/grupo-entrada-copahue.jpg',
+      '/images/tours/raids/grupo-petroglifos-desierto.jpg',
+      '/images/tours/raids/rider-desierto-atacama.jpg',
+      '/images/tours/raids/riders-sendero-montanas.jpg',
+      '/images/tours/raids/mapa-raid-ushuaia.jpg',
     ],
   },
   {
-    id: 'desierto-playas',
-    key: 'desierto',
+    id: 'alquiler-motos',
+    key: 'alquiler',
     images: [
-      '/images/tours/desierto-1.jpg',
-      '/images/tours/desierto-2.jpg',
-      '/images/tours/desierto-3.jpg',
+      '/images/tours/alquiler-motos/rider-offroad-volcanes.jpg',
+      '/images/tours/alquiler-motos/rider-garage-himalayan.jpg',
+      '/images/tours/alquiler-motos/rider-ruta-andina.jpg',
     ],
   },
 ];

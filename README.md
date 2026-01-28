@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vintage Rides Andes
 
-## Getting Started
+Sitio web oficial de **Vintage Rides Andes** - Tours en motocicleta por los Andes de Sudamérica.
 
-First, run the development server:
+## Tecnologías
+
+- **Next.js 16** - Framework React con App Router
+- **TypeScript** - Tipado estático
+- **CSS Puro** - Estilos con metodología BEM
+- **i18n** - Soporte multiidioma (Español/Inglés)
+
+## Inicio Rápido
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Construir para producción
+npm run build
+
+# Iniciar en producción
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+vrandes/
+├── app/
+│   ├── [lang]/              # Páginas por idioma (es, en)
+│   ├── components/          # Componentes reutilizables
+│   │   ├── layout/          # Header, Footer, navegación
+│   │   └── ui/              # Botones, inputs, etc.
+│   ├── data/                # Datos del sitio
+│   │   ├── testimonials.ts  # Testimonios de clientes
+│   │   ├── gallery.ts       # Fotos de la galería
+│   │   ├── tours.ts         # Información de tours
+│   │   ├── navigation.ts    # Enlaces y redes sociales
+│   │   └── about.ts         # Sección nosotros
+│   ├── features/            # Secciones del sitio
+│   │   ├── home/            # Hero
+│   │   ├── tours/           # Showcase de tours
+│   │   ├── about/           # Propuesta de valor
+│   │   ├── testimonials/    # Testimonios
+│   │   ├── gallery/         # Galería de fotos
+│   │   └── contact/         # Formulario de contacto
+│   ├── styles/              # Estilos CSS
+│   │   ├── base/            # Variables, reset, utilities
+│   │   ├── components/      # Estilos de componentes
+│   │   ├── layout/          # Header, Footer, etc.
+│   │   └── features/        # Estilos por sección
+│   ├── types/               # Tipos TypeScript
+│   └── hooks/               # Hooks personalizados
+├── dictionaries/            # Traducciones
+│   ├── es.json              # Español
+│   └── en.json              # Inglés
+├── lib/
+│   └── i18n/                # Configuración de idiomas
+├── public/
+│   ├── images/              # Imágenes del sitio
+│   └── videos/              # Videos (hero)
+└── MANTENIMIENTO.md         # Guía para hacer cambios
+```
 
-## Learn More
+## Mantenimiento
 
-To learn more about Next.js, take a look at the following resources:
+Para hacer cambios comunes (agregar testimonios, fotos, modificar textos), consulta la [Guía de Mantenimiento](./MANTENIMIENTO.md).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Cambios Rápidos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Tarea | Archivo |
+|-------|---------|
+| Agregar testimonio | `app/data/testimonials.ts` |
+| Agregar foto | `app/data/gallery.ts` |
+| Modificar tour | `app/data/tours.ts` + `dictionaries/*.json` |
+| Cambiar textos | `dictionaries/es.json` o `dictionaries/en.json` |
+| Redes sociales | `app/data/navigation.ts` |
+| Colores | `app/styles/base/variables.css` |
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev      # Desarrollo con hot reload
+npm run build    # Construir para producción
+npm run start    # Iniciar servidor de producción
+npm run lint     # Verificar código
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Despliegue
+
+El proyecto está configurado para desplegarse en Vercel:
+
+1. Conecta el repositorio a Vercel
+2. Los despliegues son automáticos con cada push a `main`
+
+## Idiomas
+
+El sitio soporta dos idiomas:
+- Español (`/es`) - Idioma por defecto
+- Inglés (`/en`)
+
+El middleware detecta automáticamente el idioma del navegador.
+
+## Licencia
+
+Todos los derechos reservados - Vintage Rides Andes

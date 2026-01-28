@@ -115,14 +115,7 @@
 
 @media (max-width: 768px) {
   .bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  /* Add padding to body to prevent content from being hidden behind bottom nav */
-  body {
-    padding-bottom: 70px;
+    display: none;
   }
 }
 
