@@ -356,39 +356,78 @@
 }
 
 
-/* Tour indicator dots - Below content */
-.tours__tour-dots {
+/* Tour Navigation - Numbers with arrows */
+.tours__tour-nav {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  padding: var(--spacing-lg) 0 0;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl) 0 0;
 }
 
-.tours__tour-dot {
-  width: 14px;
-  height: 14px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.4);
+.tours__tour-arrow {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
-  padding: 0;
 }
 
-.tours__tour-dot:hover {
-  background: rgba(255, 255, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.7);
+.tours__tour-arrow:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
   transform: scale(1.1);
 }
 
-.tours__tour-dot--active {
+.tours__tour-numbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tours__tour-number {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tours__tour-number:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.tours__tour-number--active {
   background: var(--color-accent);
   border-color: var(--color-accent);
-  width: 16px;
-  height: 16px;
-  box-shadow: 0 0 15px rgba(230, 126, 34, 0.6);
+  color: white;
+  box-shadow: 0 0 15px rgba(230, 126, 34, 0.5);
+}
+
+/* Hide on mobile/tablet */
+@media (max-width: 1024px) {
+  .tours__tour-nav {
+    display: none;
+  }
 }
 
 .tours__carousel-slide {
@@ -762,10 +801,6 @@
   .tours__cta-group {
     flex-direction: column;
     align-items: center;
-  }
-
-  .tours__tour-dots {
-    gap: 14px;
   }
 
   .tours__image-wrapper {

@@ -246,16 +246,40 @@ export default function TourShowcase({ dict }: TourShowcaseProps) {
           </svg>
         </button>
 
-        {/* Tour indicator dots - Below content */}
-        <div className="tours__tour-dots">
-          {tours.map((_, index) => (
-            <button
-              key={index}
-              className={`tours__tour-dot ${index === activeIndex ? 'tours__tour-dot--active' : ''}`}
-              onClick={() => { setActiveIndex(index); setImageIndex(0); }}
-              aria-label={`${dict.tours.items[tours[index].key].title}`}
-            />
-          ))}
+        {/* Tour Navigation - Numbers with arrows */}
+        <div className="tours__tour-nav">
+          <button
+            className="tours__tour-arrow tours__tour-arrow--prev"
+            onClick={prevTour}
+            aria-label={dict.tours.previousTour}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+
+          <div className="tours__tour-numbers">
+            {tours.map((_, index) => (
+              <button
+                key={index}
+                className={`tours__tour-number ${index === activeIndex ? 'tours__tour-number--active' : ''}`}
+                onClick={() => { setActiveIndex(index); setImageIndex(0); }}
+                aria-label={`${dict.tours.items[tours[index].key].title}`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+
+          <button
+            className="tours__tour-arrow tours__tour-arrow--next"
+            onClick={nextTour}
+            aria-label={dict.tours.nextTour}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </div>
 
       </div>

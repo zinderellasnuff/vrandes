@@ -59,15 +59,9 @@ export default function Testimonials({ testimonials, dict }: TestimonialsWithDic
           </blockquote>
 
           <div className="testimonials__author">
-            <div className="testimonials__avatar">
-              <img
-                src={currentTestimonial.avatar}
-                alt={currentTestimonial.name}
-              />
-            </div>
             <div className="testimonials__author-info">
               <p className="testimonials__author-name">{currentTestimonial.name}</p>
-              <p className="testimonials__author-location">{currentTestimonial.location}</p>
+              <p className="testimonials__author-date">{currentTestimonial.date}</p>
             </div>
             <div className="testimonials__rating" role="img" aria-label={`Rating: ${currentTestimonial.rating} of 5 stars`}>
               {[...Array(currentTestimonial.rating)].map((_, i) => (

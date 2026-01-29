@@ -37,9 +37,7 @@ export interface HeroProps {
 export interface TestimonialDisplay {
   id: string;
   name: string;
-  location: string;
-  avatar: string;
-  title: string;
+  date: string;
   description: string;
   rating: number;
 }
