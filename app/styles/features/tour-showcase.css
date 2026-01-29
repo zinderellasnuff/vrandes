@@ -7,7 +7,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 
@@ -350,46 +350,26 @@
   cursor: pointer;
 }
 
-/* Tour Section Navigation - Prev/Dots/Next bar */
-.tours__tour-nav {
+/* Tour Section Navigation - Edge buttons (hidden on desktop, mobile uses swipe) */
+.tours__edge-nav {
+  display: none;
+}
+
+
+/* Tour indicator dots - Below content */
+.tours__tour-dots {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-lg);
+  gap: 16px;
   padding: var(--spacing-lg) 0 0;
 }
 
-.tours__tour-nav-btn {
-  width: 48px;
-  height: 48px;
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.tours__tour-nav-btn:hover {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  transform: scale(1.1);
-}
-
-.tours__tour-dots {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .tours__tour-dot {
-  width: 12px;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.25);
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   cursor: pointer;
@@ -400,14 +380,15 @@
 .tours__tour-dot:hover {
   background: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.1);
 }
 
 .tours__tour-dot--active {
   background: var(--color-accent);
   border-color: var(--color-accent);
-  width: 14px;
-  height: 14px;
-  box-shadow: 0 0 12px rgba(230, 126, 34, 0.5);
+  width: 16px;
+  height: 16px;
+  box-shadow: 0 0 15px rgba(230, 126, 34, 0.6);
 }
 
 .tours__carousel-slide {
@@ -525,6 +506,16 @@
 /* ==========================================================================
    Ultrawide Screens (2560px and above)
    ========================================================================== */
+
+/* ==========================================================================
+   Medium Screens (1024px to 1440px)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Wide Screens (1440px and above)
+   ========================================================================== */
+
 
 @media (min-width: 2560px) {
   .tours__container {
@@ -773,13 +764,8 @@
     align-items: center;
   }
 
-  .tours__tour-nav {
-    gap: var(--spacing-md);
-  }
-
-  .tours__tour-nav-btn {
-    width: 44px;
-    height: 44px;
+  .tours__tour-dots {
+    gap: 14px;
   }
 
   .tours__image-wrapper {
@@ -814,7 +800,7 @@
   }
 
   .tours__swipe-hint {
-    display: none;
+    display: flex;
   }
 }
 

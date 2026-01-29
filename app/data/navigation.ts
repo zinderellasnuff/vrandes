@@ -101,6 +101,11 @@ export const socialLinks = [
     url: 'https://youtube.com/@vintageridesandes',
     icon: icons.youtube,
   },
+  {
+    name: 'WhatsApp',
+    url: 'https://wa.me/51943883777',
+    icon: icons.whatsapp,
+  },
 ];
 
 /**

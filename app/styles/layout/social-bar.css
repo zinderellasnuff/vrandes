@@ -142,24 +142,109 @@
 
 @media (max-width: 768px) {
   .social-bar {
-    bottom: var(--spacing-md);
+    display: none;
   }
+}
 
-  .social-bar__content {
-    padding: 8px 14px;
+/* ==========================================================================
+   Mobile Social Bar - All social links
+   ========================================================================== */
+
+.social-bar-mobile {
+  display: none;
+  position: fixed;
+  bottom: var(--spacing-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+}
+
+.social-bar-mobile__content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(26, 37, 47, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 50px;
+  border: 1px solid rgba(212, 181, 158, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.social-bar-mobile__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.social-bar-mobile__link:hover,
+.social-bar-mobile__link:active {
+  color: #D4B59E;
+  background: rgba(212, 181, 158, 0.15);
+  transform: scale(1.1);
+}
+
+.social-bar-mobile__link svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* WhatsApp special styling */
+.social-bar-mobile__link--whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.social-bar-mobile__link--whatsapp:hover,
+.social-bar-mobile__link--whatsapp:active {
+  background: #128C7E;
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+}
+
+@media (max-width: 768px) {
+  .social-bar-mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-bar-mobile__content {
+    padding: 8px 12px;
     gap: 4px;
   }
 
-  .social-bar__label {
-    display: none;
+  .social-bar-mobile__link {
+    width: 40px;
+    height: 40px;
   }
 
-  .social-bar__link {
-    padding: 8px;
+  .social-bar-mobile__link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .social-bar-mobile__content {
+    padding: 6px 10px;
+    gap: 2px;
   }
 
-  .social-bar__link svg {
-    width: 16px;
-    height: 16px;
+  .social-bar-mobile__link {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social-bar-mobile__link svg {
+    width: 18px;
+    height: 18px;
   }
 }

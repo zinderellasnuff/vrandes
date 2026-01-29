@@ -203,20 +203,20 @@ export default function Header({ lang, dict }: HeaderProps) {
             </a>
           </div>
 
-          {/* Mobile Right Side - Social + Language */}
+          {/* Mobile Right Side - Navigation + Language */}
           <div className="header__mobile-right">
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="header__mobile-social-link"
-                title={social.name}
-              >
-                {social.icon}
-              </a>
-            ))}
+            <nav className="header__mobile-nav">
+              {navItems.slice(0, 4).map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="header__mobile-nav-link"
+                  title={item.label}
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </nav>
             <div className="header__mobile-lang">
               <Link
                 href={getLocalizedPath('es')}
